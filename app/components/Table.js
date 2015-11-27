@@ -22,7 +22,7 @@ function addJobs(quantity) {
 addJobs(5);
 
 var cellEditProp = {
-  mode: "click",
+  mode: "dbclick",
   blurToSave: true
 };
 
