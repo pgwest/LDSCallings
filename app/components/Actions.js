@@ -1,5 +1,7 @@
 import React from 'react'
+import Table from './Table.js'
 
+    
 class Actions extends React.Component {
   render() {
     const events = [
@@ -14,6 +16,19 @@ class Actions extends React.Component {
             <li key={event.id}>{event.title}</li>
           ))}
         </ul>
+        <div className='col-md-4'>
+        	<h2>Table</h2> 
+
+        <Table/>
+            <br/>
+        <Table/>
+            <br/>
+        <Table/>
+            <br/>
+        <Table/>
+    
+            
+        </div>
       </div>
     )
   }

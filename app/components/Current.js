@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from './Table.js'
+import CurrentTable from './CurrentTable.js'
 //var Router = require('react-router');
 //var Link = Router.Link;
 
@@ -18,16 +18,45 @@ class Current extends React.Component {
           ))}
         </ul>
 
+         <div className="container-fluid">
+                <div className="row">
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Bishopric</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Elders Quorem</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Relief Society</h1>
+                    <CurrentTable/>
+
+                </div>
+                    
+                <div className="row">
+                </div>
+                  <div className="col-md-4 col-md-12">
+                    <h1>YM</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>YW</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Primary</h1>
+                    <CurrentTable/>
+
+                </div>
+            </div>
+        
+        
+        
         <div className='col-md-4'>
         	<h2>Table</h2> 
 
-        <Table/>
-            <br/>
-        <Table/>
-            <br/>
-        <Table/>
-            <br/>
-        <Table/>
     
             
         </div>

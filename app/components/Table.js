@@ -26,10 +26,15 @@ var cellEditProp = {
   blurToSave: true
 };
 
+var selectRowProp = {
+  mode: "checkbox", // or checkbox
+  clickToSelect: true
+};
+
 export default class EditTypeTable extends React.Component{
   render(){
     return (
-      <BootstrapTable data={jobs} cellEdit={cellEditProp}>
+      <BootstrapTable data={jobs} cellEdit={cellEditProp} insertRow={true} deleteRow={true} selectRow={selectRowProp}>
           <TableHeaderColumn dataField="id" isKey={true}>Job ID</TableHeaderColumn>
           <TableHeaderColumn dataField="name" editable={{type:'textarea'}}>Job Name</TableHeaderColumn>
           <TableHeaderColumn dataField="type" editable={{type:'select', options:{values:jobTypes}}}>Job Type</TableHeaderColumn>
