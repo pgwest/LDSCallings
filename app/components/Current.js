@@ -50,16 +50,65 @@ class Current extends React.Component {
                     <CurrentTable/>
 
                 </div>
+                
+                                <div className="row">
+                </div>
+                  <div className="col-md-4 col-md-12">
+                    <h1>High Priests</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Sunday School</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Ward Music</h1>
+                    <CurrentTable/>
+
+                </div>
+                
+                                <div className="row">
+                </div>
+                  <div className="col-md-4 col-md-12">
+                    <h1>Communications</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Ward Miscellaneous</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Stake Callings</h1>
+                    <CurrentTable/>
+
+                </div>
+                
+                                <div className="row">
+                </div>
+                  <div className="col-md-4 col-md-12">
+                    <h1>Ward Positions</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>YSA</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1></h1>
+
+                </div>
+                
+                <div className="row">
+                </div>
+                  <div className="col-md-12">
+                    <h1>Without Calling</h1>
+                    <CurrentTable/>
+                </div>
+                
             </div>
-        
-        
-        
-        <div className='col-md-4'>
-        	<h2>Table</h2> 
+    
 
     
-            
-        </div>
        </div>
 
         
