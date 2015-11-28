@@ -17,17 +17,20 @@ class Profile extends React.Component {
       <div>
         <div>
             <h1>My Account</h1>
-            <h3>Username: Bishop's Name</h3>
-            <h3>Password: myPassword</h3>
-            <h3>Calling: Bishop</h3>
-            <h3>Email: myemail@gmail.com</h3>
+            <h3>Username: Bishop's Name</h3>         <button onClick={this.logOut}>Edit</button>
+            <h3>Password: myPassword</h3>         <button onClick={this.logOut}>Edit</button>
+            <h3>Calling: Bishop</h3>         <button onClick={this.logOut}>Edit</button>
+            <h3>Email: myemail@gmail.com</h3>         <button onClick={this.logOut}>Edit</button>
         </div>
        <div>
         <br> </br>
         <h1>Manage LDS Callings App</h1>
         
-        <h3>Edit callings</h3> 
-        <button onClick={this.logOut}>Edit Callingst</button>
+        <h3>Edit Organizations</h3> 
+        <button onClick={this.logOut}>Edit Organizations</button>
+        
+        <h3>Edit Callings</h3> 
+        <button onClick={this.logOut}>Edit Callings</button>
         
         <h3>Import Ward Members</h3>
         <button onClick={this.logOut}>Import Ward Membors</button>

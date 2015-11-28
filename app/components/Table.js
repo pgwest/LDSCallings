@@ -12,9 +12,15 @@ function addJobs(quantity) {
     var id = startId + i;
     jobs.push({
       id: id,
-      name: "Item name " + id,
-      type: 'B',
-      active: i%2==0?'Y':'N'
+      calling: "Calling " + id,
+      candidate: 'James Finnigan',
+      thinking: i%2==0?'Y':'N',
+      decided:  i%3==0?'Y':'N',
+      called: i%4==0?'Y':'N',
+      released: i%5==0?'Y':'N',
+      sustain: i%6==0?'Y':'N',
+      setApart: i%7==0?'Y':'N',
+      mls: i%8==0?'Y':'N'
     });
   }
 }
@@ -34,11 +40,17 @@ var selectRowProp = {
 export default class EditTypeTable extends React.Component{
   render(){
     return (
-      <BootstrapTable data={jobs} cellEdit={cellEditProp} insertRow={true} deleteRow={true} selectRow={selectRowProp}>
-          <TableHeaderColumn dataField="id" isKey={true} hidden={true}>Job ID</TableHeaderColumn>
-          <TableHeaderColumn dataField="name" editable={{type:'textarea'}}>Job Name</TableHeaderColumn>
-          <TableHeaderColumn dataField="type" editable={{type:'select', options:{values:jobTypes}}}>Job Type</TableHeaderColumn>
-          <TableHeaderColumn dataField="active" editable={{type:'checkbox', options:{values:'Y:N'}}}>Active</TableHeaderColumn>
+      <BootstrapTable data={jobs} cellEdit={cellEditProp} >
+          <TableHeaderColumn dataField="id" isKey={true} hidden={true}>ID</TableHeaderColumn>
+          <TableHeaderColumn dataField="calling" editable={{type:'textarea'}} width="120">Calling</TableHeaderColumn>
+          <TableHeaderColumn dataField="candidate" editable={{type:'textarea'}} width="120">Candidate</TableHeaderColumn>
+          <TableHeaderColumn dataField="thinking" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">?</TableHeaderColumn>
+        <TableHeaderColumn dataField="decided" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">Decided</TableHeaderColumn>
+        <TableHeaderColumn dataField="called" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">Called</TableHeaderColumn>
+        <TableHeaderColumn dataField="released" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">Prev Release</TableHeaderColumn>
+        <TableHeaderColumn dataField="sustain" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">Sustain</TableHeaderColumn>
+        <TableHeaderColumn dataField="setApart" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">Set Apart</TableHeaderColumn>
+        <TableHeaderColumn dataField="mls" editable={{type:'checkbox', options:{values:'Y:N'}}} width="60">In MLS</TableHeaderColumn>
       </BootstrapTable>
     );
   }

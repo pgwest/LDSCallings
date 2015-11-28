@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from './Table.js'
+import MemberTable from './MemberTable.js'
 
 
 class Without extends React.Component {
@@ -10,9 +10,11 @@ class Without extends React.Component {
       <div>
         <h2>Members Without a Calling</h2>
       </div>
-      <div className="col-md-12">
+        <div className="col-md-2">
+        </div>
+      <div className="col-md-8">
             <h1>Without Calling</h1>
-            <Table/>
+            <MemberTable/>
       </div>
      </div>
     )
