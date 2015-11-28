@@ -12,9 +12,9 @@ function addJobs(quantity) {
     var id = startId + i;
     jobs.push({
       id: id,
-      calling: "Calling " + id,
-      name: 'Jonathon Thatcher',
-      date: '9/8/1982',
+      name: "Calling " + id,
+      birthday: 'Jonathon Thatcher',
+      photo: 'photo id: ' + id,
     });
   }
 }
@@ -45,9 +45,9 @@ export default class EditTypeTable extends React.Component{
     return (
       <BootstrapTable data={jobs} cellEdit={cellEditProp} striped={true} hover={true} condensed={true}>
           <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center">Job ID</TableHeaderColumn>
-          <TableHeaderColumn dataField="calling" width="80" editable={{type:'textarea'}} dataAlign="center">Calling</TableHeaderColumn>
-          <TableHeaderColumn dataField="name" width="120" editable={{type:'textarea'}} dataAlign="center">Member Name</TableHeaderColumn>
-          <TableHeaderColumn dataField="date" width="60" editable={{type:'textarea'}} dataAlign="center">Date Called</TableHeaderColumn>
+          <TableHeaderColumn dataField="name" width="80" editable={{type:'textarea'}} dataAlign="center">Name</TableHeaderColumn>
+          <TableHeaderColumn dataField="birthday" width="80" editable={{type:'textarea'}} dataAlign="center">Birthday</TableHeaderColumn>
+          <TableHeaderColumn dataField="photo" width="100" editable={{type:'textarea'}} dataAlign="center">Picture</TableHeaderColumn>
       </BootstrapTable>
     );
   }

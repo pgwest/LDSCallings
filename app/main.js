@@ -13,6 +13,7 @@ import MyActions from './components/MyActions.js'
 import Without from './components/Without.js'
 import GlobalNav from './components/GlobalNav.js'
 import Profile from './components/Profile.js'
+import Members from './components/Members.js'
 
 
 
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path='Without' component={Without} />
       <Route path='GlobalNav' component={GlobalNav} />
       <Route path='Profile' component={Profile} />
+      <Route path='Members' component={Members} />
     </Route>
     </Router>
                 , document.getElementById('root'));

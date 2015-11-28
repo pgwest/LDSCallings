@@ -24,12 +24,19 @@ styles.activeLink = {
   color: dark
 }
 
+styles.button = {
+  background: dark,
+  color: light,
+  fontWeight: 200
+
+}
+
 class GlobalNav extends React.Component {
 
   static defaultProps = {
     user: {
       id: 1,
-      name: 'Peter West'
+      name: 'User\'s Name'
     }
   }
 
@@ -52,10 +59,12 @@ class GlobalNav extends React.Component {
           <Link to="/current" style={styles.link} activeStyle={styles.activeLink}>Current Callings</Link>{' '}
           <Link to="/actions" style={styles.link} activeStyle={styles.activeLink}>Action Needed</Link>{' '}
           <Link to="/without" style={styles.link} activeStyle={styles.activeLink}>Without A Calling</Link>{' '}
+                  <Link to="/members" style={styles.link} activeStyle={styles.activeLink}>Member Directory</Link>{' '}
           <Link to="/myActions" style={styles.link} activeStyle={styles.activeLink}>My Actions</Link>{' '}
+
         </div>
         <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">{user.name}</Link> <button onClick={this.logOut}>log out</button>
+          <Link style={styles.link} to="/profile">My Account</Link> <button style={styles.button} onClick={this.logOut}>Log Out</button>
         </div>
       </div>
     )
