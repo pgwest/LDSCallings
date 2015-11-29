@@ -25,7 +25,15 @@ class Actions extends React.Component {
 
     return (
       <div style={styles.border}>
-
+        <div className="row" style={styles.border}>
+          <div className="col-md-2 col-md-12">
+            <h2>Legend</h2>
+          </div>
+          <div className="col-md-10 col-md-12">
+            <h4>{String.fromCharCode(63) + " = Thinking about this person, " + String.fromCharCode(10004) + " = Decided to call this person, Aux = Confirmed with Auxiliary Leader, " + String.fromCharCode(9743) + " = Has been called, "} </h4>
+        <h4>{String.fromCharCode(9988) + " = Previous person has been released, " + String.fromCharCode(9996) + " = Sustained, SA = Set Apart, MLS = entered in MLS, " +  String.fromCharCode(9998) + " = Link to Notes"}</h4>
+          </div>
+        </div>
            <div className="container-fluid">
                 <div className="row" style={styles.border}>
                     <div className="col-md-6 col-md-12">
