@@ -1,8 +1,36 @@
 import React from 'react'
 import CurrentTable from './CurrentTable.js'
+import MemberTable from './MemberTable.js'
+
 //var Router = require('react-router');
 //var Link = Router.Link;
+const styles = {};
+    
 
+styles.wrapper = {
+//  background: '#fffff',
+  color: '#28363D',
+
+}
+
+styles.border = {
+//  background: '#5B6F79',
+  border: '5px solid #5B6F79',
+
+}
+
+
+styles.headings = {
+//  background: '#5B6F79',
+  'textDecoration':'underline', 
+//  'border-bottom': '5px solid #2C4537',
+
+}
+
+//styles.table = {
+//      border: '25px solid #2C4537',
+//}
+    
 class Current extends React.Component {
   render() {
     const events = [
@@ -10,55 +38,34 @@ class Current extends React.Component {
     ]
 
     return (
-      <div>
+      <div style={styles.border}>
 
-         <div className="container-fluid">
+         <div className="container-fluid" >
                 <div className="row">
                 </div>
-                <div className="col-md-3 col-md-12">
-                    <h1>Bishopric</h1>
+                <div className="col-md-3 col-md-12" style={styles.wrapper}>
+                    <h1 style={styles.headings}>Bishopric</h1>
                     <CurrentTable/>
                 </div>
                 <div className="col-md-3 col-md-12">
-                    <h1>Elders Quorem</h1>
+                    <h1 style={styles.headings}>High Priests</h1>
                     <CurrentTable/>
                 </div>
                 <div className="col-md-3 col-md-12">
-                    <h1>Relief Society</h1>
+                    <h1 style={styles.headings}>Relief Society</h1>
                     <CurrentTable/>
 
                 </div>
                 <div className="col-md-3 col-md-12">
-                    <h1>Ward Positions</h1>
+                    <h1 style={styles.headings}>Primary</h1>
                     <CurrentTable/>
 
                 </div> 
                     
-                <div className="row">
+                <div className="row" style={styles.border}>
                 </div>
                   <div className="col-md-3 col-md-12">
-                    <h1>YM</h1>
-                    <CurrentTable/>
-                </div>
-                <div className="col-md-3 col-md-12">
-                    <h1>YW</h1>
-                    <CurrentTable/>
-                </div>
-                <div className="col-md-3 col-md-12">
-                    <h1>Primary</h1>
-                    <CurrentTable/>
-
-                </div>
-                <div className="col-md-3 col-md-12">
-                    <h1>YSA</h1>
-                    <CurrentTable/>
-
-                </div>
-                
-                <div className="row">
-                </div>
-                  <div className="col-md-3 col-md-12">
-                    <h1>High Priests</h1>
+                    <h1>Elders Quorum</h1>
                     <CurrentTable/>
                 </div>
                 <div className="col-md-3 col-md-12">
@@ -71,16 +78,15 @@ class Current extends React.Component {
 
                 </div>
                 <div className="col-md-3 col-md-12">
-                    <h1>Relief Society</h1>
+                    <h1>Communications</h1>
                     <CurrentTable/>
 
-                </div>    
-                    
+                </div>
                 
-                                <div className="row">
+                <div className="row" style={styles.border}>
                 </div>
                   <div className="col-md-3 col-md-12">
-                    <h1>Communications</h1>
+                    <h1>Ward Positions</h1>
                     <CurrentTable/>
                 </div>
                 <div className="col-md-3 col-md-12">
@@ -93,41 +99,62 @@ class Current extends React.Component {
 
                 </div>
                 <div className="col-md-3 col-md-12">
-                    <h1>Relief Society</h1>
+                    <h1>YSA</h1>
                     <CurrentTable/>
+
+                </div>    
+                    
+                
+                                <div className="row" style={styles.border}>
+                </div>
+                  <div className="col-md-3 col-md-12">
+                    <h1>Young Men</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Young Women</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Other</h1>
+                    <CurrentTable/>
+
+                </div>
+                <div className="col-md-3 col-md-12">
+
 
                 </div>
                 
             
-                <div className="row">
+                <div className="row" style={styles.border}>
                 </div>
                   <div className="col-md-4 col-md-12">
                     <h1>Priests</h1>
-                    <CurrentTable/>
+                    <MemberTable/>
                 </div>
                 <div className="col-md-4 col-md-12">
                     <h1>Teachers</h1>
-                    <CurrentTable/>
+                    <MemberTable/>
                 </div>
                 <div className="col-md-4 col-md-12">
                     <h1>Deacons</h1>
-                    <CurrentTable/>
+                    <MemberTable/>
                 </div>
         
 
-                <div className="row">
+                <div className="row" style={styles.border}>
                 </div>
                   <div className="col-md-4 col-md-12">
                     <h1>Laurels</h1>
-                    <CurrentTable/>
+                    <MemberTable/>
                 </div>
                 <div className="col-md-4 col-md-12">
                     <h1>Mia-Maides</h1>
-                    <CurrentTable/>
+                    <MemberTable/>
                 </div>
                 <div className="col-md-4 col-md-12">
                     <h1>Beehives</h1>
-                    <CurrentTable/>
+                    <MemberTable/>
                 </div>
                 
             </div>
