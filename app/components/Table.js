@@ -46,7 +46,7 @@ var selectRowProp = {
 export default class EditTypeTable extends React.Component{
   render(){
     return (
-      <BootstrapTable data={jobs} cellEdit={cellEditProp} >
+      <BootstrapTable data={jobs} cellEdit={cellEditProp}  striped={true} hover={true} condensed={true}>
           <TableHeaderColumn dataField="id" isKey={true} hidden={true}>ID</TableHeaderColumn>
         
           <TableHeaderColumn dataField="calling" editable={{type:'textarea'}} width="120">Calling</TableHeaderColumn>
