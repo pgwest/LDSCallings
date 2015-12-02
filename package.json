@@ -1,5 +1,5 @@
 {
-  "name": "webpack-express-boilerplate",
+  "name": "lds_callings",
   "version": "0.1.0",
   "description": "A boilerplate for running a Webpack workflow in Node express",
   "main": "server.js",
@@ -12,7 +12,7 @@
     "webpack",
     "node"
   ],
-  "author": "Christian Alfoni",
+  "author": "Peter West",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/christianalfoni/webpack-express-boilerplate/issues"
@@ -26,8 +26,13 @@
     "jscs": "jscs ."
   },
   "dependencies": {
+    "history": "^1.13.1",
+    "kerberos": "0.0.17",
+    "mongoose": "^4.2.8",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-bootstrap-table": "^1.2.15",
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
