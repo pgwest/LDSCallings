@@ -30,8 +30,8 @@ class Actions extends React.Component {
             <h2>Legend</h2>
           </div>
           <div className="col-md-10 col-md-12">
-            <h4>{String.fromCharCode(63) + " = Thinking about this person, " + String.fromCharCode(10004) + " = Decided to call this person, Aux = Confirmed with Auxiliary Leader, " + String.fromCharCode(9743) + " = Has been called, "} </h4>
-        <h4>{String.fromCharCode(9988) + " = Previous person has been released, " + String.fromCharCode(9996) + " = Sustained, SA = Set Apart, MLS = entered in MLS, " +  String.fromCharCode(9998) + " = Link to Notes"}</h4>
+            <h4>{String.fromCharCode(63) + " = Thinking about this person, " + String.fromCharCode(10004) + " = Decided to call this person, "} <strong>AUX</strong> { "= Confirmed with Auxiliary Leader, "} <span className="glyphicon glyphicon-earphone" aria-hidden="true"></span>{ " = Has been called, "} </h4>
+        <h4>{String.fromCharCode(9988) + " = Previous person has been released,  "} <span className="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>{ " = Sustained, "} <strong>SA</strong> { " = Set Apart, "} <strong>MLS</strong> { "= entered in MLS, "}  <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>{ " = Link to Notes"}</h4>
           </div>
         </div>
            <div className="container-fluid">

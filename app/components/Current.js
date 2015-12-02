@@ -1,6 +1,7 @@
 import React from 'react'
 import CurrentTable from './CurrentTable.js'
 import MemberTable from './MemberTable.js'
+import CurrentTableList from './CurrentTableList.js'
 
 //var Router = require('react-router');
 //var Link = Router.Link;
@@ -30,6 +31,114 @@ styles.headings = {
 //styles.table = {
 //      border: '25px solid #2C4537',
 //}
+
+
+//flag a need to change in this and actions by right click
+
+var options = {
+ tables : [{
+      id: "id",
+      title: "Bishopric",
+      tableData :[{
+          id: "id",
+          calling: "Calling 0",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            key: "id1",
+          calling: "Calling 1",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 2",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ],
+      }, {
+                key: "id1",
+                title: "EQ",
+      tableData :[{
+          id: "id",
+          calling: "Calling 0",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id1",
+          calling: "Calling 1",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 2",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ]
+      },
+      {      key: "id2",
+             title: "RS",
+      tableData :[{
+          id: "id",
+          calling: "Calling 0",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id1",
+          calling: "Calling 1",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 2",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ]
+      },
+        {      key: "id3",
+               title: "YM",
+      tableData :[{
+          id: "id00",
+          calling: "Calling 00",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id01",
+          calling: "Calling 01",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 02",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     },{       id: "id3",
+          calling: "Calling 03",
+          name: 'Jonathon Tres3',
+          date: '9/8/2004'   
+     }
+     ]
+      },
+     {      key: "id4",
+               title: "YW",
+      tableData :[{
+          id: "id00",
+          calling: "Calling 00",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id01",
+          calling: "Calling 01",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 02",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ]
+      }   
+     ]
+    
+}
     
 class Current extends React.Component {
   render() {
@@ -39,9 +148,10 @@ class Current extends React.Component {
 
     return (
       <div style={styles.border}>
-
+        
          <div className="container-fluid" >
-                <div className="row">
+        <CurrentTableList {...options} style={styles.border}/>
+                <div className="row"  style={styles.border}>
                 </div>
                 <div className="col-md-3 col-md-12" style={styles.wrapper}>
                     <h1 style={styles.headings}>Bishopric</h1>
@@ -170,5 +280,7 @@ class Current extends React.Component {
 
 
 
-module.exports =Current;
+
+
+module.exports = Current;
 

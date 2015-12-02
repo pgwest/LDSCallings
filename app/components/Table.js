@@ -59,17 +59,17 @@ export default class EditTypeTable extends React.Component{
         
         <TableHeaderColumn dataField="auxiliary" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40">Aux</TableHeaderColumn>
         
-        <TableHeaderColumn dataField="called" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40">{String.fromCharCode(9743)}</TableHeaderColumn>
+        <TableHeaderColumn dataField="called" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40"><span className="glyphicon glyphicon-earphone" aria-hidden="true"></span></TableHeaderColumn>
         
         <TableHeaderColumn dataField="released" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40">{String.fromCharCode(9988)}</TableHeaderColumn>
         
-        <TableHeaderColumn dataField="sustain" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40">{String.fromCharCode(9996)}</TableHeaderColumn>
+        <TableHeaderColumn dataField="sustain" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40"><span className="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></TableHeaderColumn>
         
         <TableHeaderColumn dataField="setApart" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40">SA</TableHeaderColumn>
         
         <TableHeaderColumn dataField="mls" editable={{type:'checkbox', options:{values:'Y:N'}}} width="40">MLS</TableHeaderColumn>
         
-        <TableHeaderColumn dataField="notes" editable={false} width="40">{String.fromCharCode(9998)}</TableHeaderColumn>
+        <TableHeaderColumn dataField="notes" editable={false} width="40"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></TableHeaderColumn>
       </BootstrapTable>
     );
   }

@@ -60,11 +60,11 @@ class GlobalNav extends React.Component {
           <Link to="/actions" style={styles.link} activeStyle={styles.activeLink}>Action Needed</Link>{' '}
           <Link to="/without" style={styles.link} activeStyle={styles.activeLink}>Without A Calling</Link>{' '}
                   <Link to="/members" style={styles.link} activeStyle={styles.activeLink}>Member Directory</Link>{' '}
-          <Link to="/myActions" style={styles.link} activeStyle={styles.activeLink}>My Actions</Link>{' '}
+          <Link to="/myActions" style={styles.link} activeStyle={styles.activeLink}>My Actions <span className="badge">2</span></Link>{' '}
 
         </div>
         <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">My Account</Link> <button style={styles.button} onClick={this.logOut}>Log Out</button>
+          <Link style={styles.link} to="/profile">My Account <span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link> <button style={styles.button} onClick={this.logOut}>Log Out</button>
         </div>
       </div>
     )
