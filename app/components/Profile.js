@@ -1,6 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router'
 
+const styles = {};
+    
+
+styles.wrapper = {
+//  background: '#fffff',
+  color: '#28363D',
+
+}
+
+styles.border = {
+//  background: '#5B6F79',
+  border: '5px solid #5B6F79',
+
+}
+
+
+styles.headings = {
+//  background: '#5B6F79',
+  'textDecoration':'underline', 
+//  'border-bottom': '5px solid #2C4537',
+
+}
     
 class Profile extends React.Component {
 
@@ -28,12 +50,12 @@ class Profile extends React.Component {
         <br> </br>
         <h1>Manage LDS Callings App</h1>
         
-        <h3>Edit Organizations</h3> 
+        <h3  style={styles.headings}>Edit Organizations</h3> 
         <button onClick={this.logOut}>Edit Organizations</button>
         
         <h3>Edit Callings</h3> 
-        <button onClick={this.logOut}>Edit Callings</button>
-        <Link to="/editTables"><h3>Edit Tables</h3></Link>{' '}
+
+        <Link to="/editTables"><h4>Edit Organizations</h4></Link>{' '}
         
         <h3>Import Ward Members</h3>
         <button onClick={this.logOut}>Import Ward Membors</button>

@@ -8,6 +8,8 @@ import Router from 'react-router';
 const styles = {};
 import History from 'react-router';
 
+import auth from "./auth.js";
+
 styles.wrapper = {
 //  background: '#fffff',
   color: '#28363D',
@@ -276,6 +278,8 @@ var Current = React.createClass({
 
   // callback for getting the list of items, sets the list state
   tableSet: function(status, data) {
+      console.log(status);
+//      console.log(data);
     if (status) {
       // set the state for the list of items
       this.setState({
@@ -283,8 +287,7 @@ var Current = React.createClass({
       });
     } else {
       // if the API call fails, redirect to the login page
-//      this.context.router.transitionTo('/login');
-        this.conext.history.pushState(null, '/');
+//        this.context.history.pushState(null, '/login');
     }
   },
 //      mixins: [ History ],
@@ -296,6 +299,8 @@ var Current = React.createClass({
          <div className="container-fluid" >
             <CurrentTableList {...this.state.options}/>
         <h2>begin second list</h2>
+        <div className="row"  style={styles.border}>
+                </div>
         <CurrentTableList {...options} style={styles.border}/>
                 <div className="row"  style={styles.border}>
                 </div>

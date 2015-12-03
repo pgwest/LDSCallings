@@ -27,7 +27,7 @@ styles.headings = {
 
   var CurrentTableList = React.createClass({
     render: function() {
-        console.log(this.props);
+//        console.log(this.props);
       var list = this.props.tables.map(function(tableDataProps){
 //          console.log(tableDataProps);
         return  <div className="col-md-3 col-md-12" style={styles.wrapper}>
@@ -98,8 +98,8 @@ var selectRowProp = {
 
  var CurrentTable = React.createClass({
   render(){
-      console.log("jobs = " + jobs + jobs[1].calling);
-      console.log(this.props.jobs.tableData);
+//      console.log("jobs = " + jobs + jobs[1].calling);
+//      console.log(this.props.jobs.tableData);
       jobs = this.props.jobs.tableData;
       
     return (

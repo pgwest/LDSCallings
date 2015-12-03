@@ -1,7 +1,8 @@
 import React from "react";
 import ReactRouter from "react-router";
-var History = ReactRouter.History;
+//var History = ReactRouter.History;
 import { Link } from 'react-router'
+import History from 'react-router';
 
 
 import auth from "./auth.js";
@@ -9,7 +10,14 @@ import auth from "./auth.js";
 // Login page, shows the login form and redirects to the list if login is successful
 var Login = React.createClass({
   // mixin for navigation
-  mixins: [ History ],
+//  mixins: [ History ],
+    
+          // context so the component can access the router
+  contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
+
+  },
 
   // initial state
   getInitialState: function() {
@@ -38,7 +46,9 @@ var Login = React.createClass({
           error: true
         });
       console.log("logged in");
-      this.history.pushState(null, '/Dashboard');
+//      this.context.history.pushState(null, '/Dashboard');
+      this.context.history.pushState(null, '/');
+
     }.bind(this));
   },
 

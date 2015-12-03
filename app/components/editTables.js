@@ -72,9 +72,20 @@ var editTables = React.createClass({
              <div className="alert">Please fill both fields.</div>
            ) : null }
         </form>
+
       </div>
     );
   }
 });
 
 module.exports = editTables;
+
+
+
+//
+//    <div className="alert alert-success alert-dismissible" role="alert">
+//  <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+//  <strong>Warning!</strong> Success! You imported a table!
+//</div>
+
+

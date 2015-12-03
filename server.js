@@ -110,7 +110,8 @@ app.post('/api/users/login', function (req, res) {
 //app.get('/api/items', function (req,res) 
 app.get('/api/tables', function (req,res) {
   // validate the supplied token
-  user = User.verifyToken(req.headers.authorization, function(user) {
+  var user = User.verifyToken(req.headers.authorization, function(user) {
+              console.log(user);
     if (user) {
       // if the token is valid, find all the user's items and return them
       Table.find({user:user.id}, function(err, tables) {
@@ -123,7 +124,7 @@ app.get('/api/tables', function (req,res) {
 	res.json({tables: tables});
       });
     } else {
-                console.log('user = false');
+        console.log('user = false on get');
       res.sendStatus(403);
     }
   });
@@ -134,18 +135,20 @@ app.get('/api/tables', function (req,res) {
 app.post('/api/tables', function (req,res) {
   // validate the supplied token
   // get indexes
-  user = User.verifyToken(req.headers.authorization, function(user) {
+  var user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, create the item for the user
 //      Item.create({title:req.body.item.title,completed:false,user:user.id}, function(err,item) {
 Table.create({title:req.body.table.title,user:user.id,tableData:req.body.table.tableData}, function(err,table) {
 	if (err) {
+      console.log(err);
 	  res.sendStatus(403);
 	  return;
 	}
 	res.json({table:table});
       });
     } else {
+      console.log('user = false on post');
       res.sendStatus(403);
     }
   });
