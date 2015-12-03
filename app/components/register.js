@@ -35,7 +35,8 @@ var Register = React.createClass({
         return this.setState({
           error: true
         });
-      this.history.pushState(null, '/list');
+        console.log("registered");
+      this.history.pushState(null, '/login');
     }.bind(this));
   },
 

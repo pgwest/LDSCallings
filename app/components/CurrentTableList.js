@@ -27,6 +27,7 @@ styles.headings = {
 
   var CurrentTableList = React.createClass({
     render: function() {
+        console.log(this.props);
       var list = this.props.tables.map(function(tableDataProps){
 //          console.log(tableDataProps);
         return  <div className="col-md-3 col-md-12" style={styles.wrapper}>

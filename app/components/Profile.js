@@ -1,5 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router'
 
+    
 class Profile extends React.Component {
 
   constructor(props, context) {
@@ -31,6 +33,7 @@ class Profile extends React.Component {
         
         <h3>Edit Callings</h3> 
         <button onClick={this.logOut}>Edit Callings</button>
+        <Link to="/editTables"><h3>Edit Tables</h3></Link>{' '}
         
         <h3>Import Ward Members</h3>
         <button onClick={this.logOut}>Import Ward Membors</button>
@@ -40,7 +43,8 @@ class Profile extends React.Component {
         
         <h3>Edit Administrators</h3> 
         <button onClick={this.logOut}>Edit Admins</button>
-        
+
+
         <h3>Edit Notifications</h3>
         <button onClick={this.logOut}>Edit Notifications</button>
         <br/>

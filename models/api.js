@@ -1,6 +1,5 @@
-import app from './express.js';
-import User from './user.js';
-import Item from './item.js';
+//import app from '../server.js';
+import User from './users.js';
 import table from './table.js';
 
 
@@ -91,7 +90,7 @@ app.post('/api/tables', function (req,res) {
     if (user) {
       // if the token is valid, create the item for the user
 //      Item.create({title:req.body.item.title,completed:false,user:user.id}, function(err,item) {
-Table.create({title:req.body.table.title,user:user.id,req.body.table.tableData:[]}, function(err,table) {
+Table.create({title:req.body.table.title,user:user.id,tableData:req.body.table.tableData}, function(err,table) {
 	if (err) {
 	  res.sendStatus(403);
 	  return;

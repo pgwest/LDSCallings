@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CS 360 Internet Programming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.3.3/css/normalize.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.3.3/css/foundation.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/default.min.css">
+    <link href="/static/css/app.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="header">
+      <div class="row">
+	<div class="course small-12 large-7 columns">
+	  <a href=/>CS 360 Internet Programming
+</a>
+	</div>
+	<div class="university small-12 large-5 columns">
+	  <a class="borderright" href="http://byu.edu">BYU</a><a href="http://cs.byu.edu">Computer Science</a>
+	</div>
+      </div>
+    </div>
+    
+    <div class="contain-to-grid no-print">
+      <nav class="top-bar" data-topbar>
+	<ul class="title-area">
+	  <li><h1>
+Fall 2015
+</h1>
+	  </li>
+	  <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	</ul>
+	<section class="top-bar-section">
+
+	  <!-- Left Nav Section -->
+	  <ul class="left">
+	    
+
+
+
+
+
+
+
+<li >
+<a href=/fall-2015/ >Syllabus</a></li>
+
+
+
+
+<li >
+<a href=/fall-2015/schedule >Schedule</a></li>
+<li class="has-dropdown active">
+  <a href="#">Homework</a>
+  <ul class="dropdown">
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/linux-command-line >Linux Command Line</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/make >Make</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/git >Git</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/socket-io >Socket I/O</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/mutexes-and-condition-variables >Mutexes and Condition Variables</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/semaphores >Semaphores</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/introduction-to-python >Introduction to Python</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/python-threading >Python Threading</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/concurrency >Concurrency</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/network-security >Network Security</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/web-application-proposal >Web Application Proposal</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/javascript >JavaScript</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/homework/react >React</a></li>
+    
+
+
+
+
+
+<li class="active">
+<a href=/fall-2015/homework/webpack >webpack</a></li>
+  </ul>
+</li>
+<li class="has-dropdown ">
+  <a href="#">Labs</a>
+  <ul class="dropdown">
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/labs/messaging-service >Messaging Service</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/labs/threaded-messaging-service >Threaded Messaging Service</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/labs/download-accelerator >Download Accelerator</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/labs/web-server >Web Server</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/labs/web-application >Web Application</a></li>
+  </ul>
+</li>
+<li class="has-dropdown ">
+  <a href="#">Help</a>
+  <ul class="dropdown">
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/help/instructor >Instructor and TAs</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/help/officehours >Office Hours</a></li>
+    
+
+
+
+
+
+<li >
+<a href=/fall-2015/help/code >Sample Code</a></li>
+    <li><a href="https://piazza.com/byu/fall2015/cs360" target="_blank">Discussion <i class="fi-arrow-right"></i></a></li>
+  </ul>
+</li>
+</ul>
+
+
+	  </ul>
+	</section>
+      </nav>
+    </div>
+    
+
+    <div id="page" class="text">
+      <div class="row">
+	
+
+<h1>Homework: webpack</h1>
+
+<p>This homework is intended to help you understand how to use
+<a href="https://webpack.github.io/">webpack</a> to split your front-end
+code into modules. webpack will bundle the dependencies into
+a set of files that you can distribute with your application.</p>
+
+<h2>Organizing your front-end code</h2>
+
+<p>webpack lets you install Javascript dependencies using node.js, e.g.
+<code>npm install --save react</code>. In your Javascript code, you can then use
+<code>require</code> to load the dependencies, just like in node.
+You can see how I use webpack in this <a href="https://github.com/zappala/listomatic-node-mongo-react">listomatic
+repository</a>.</p>
+
+<p>To get started, organize your code into the following directory structure:</p>
+
+<pre><code>project
+    server.js // your server
+    node_modules
+    models // models for your node server
+    app // your front-end code
+        components // React components
+        css // custom CSS
+</code></pre>
+
+<p>You can put all your React components into <code>app/components</code>.</p>
+
+<p>Next, you need to install code you&#39;ll use for your front end:</p>
+
+<pre><code>npm install --save react react-dom react-router jquery</code></pre>
+
+<p>Then you can modify your main JS file, <code>app/components/main.js</code> to use the following:</p>
+
+<pre><code>var React = require("react");
+var ReactDOM = require("react-dom");
+var ReactRouter = require("react-router");
+
+require("../../node_modules/bootstrap/dist/css/bootstrap.min.css");
+require("../css/app.css");
+</code></pre>
+
+<p>The second-to-last line should point to the bootstrap CSS you installed,
+which should be in your node_modules directory. The last line should point
+to your custom CSS file.</p>
+
+<p>If you need to use jQuery, you can use:</p>
+
+<pre><code>var $ = require("jquery");</code></pre>
+
+<p>In any of your components.</p>
+
+<h2>Configuring webpack</h2>
+
+<p>Install webpack and some of the loaders we&#39;ll use to bundle
+JavaScript:</p>
+
+<pre><code>npm install --save-dev webpack file-loader babel-core babel-loader babel-preset-react
+</code></pre>
+
+<p>The webpack configuration is stored in a file called <code>webpack.config.js</code> stored in the top level
+of your project. Create this file and put the following inside:</p>
+
+<pre><code>var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+
+module.exports = {
+  context: __dirname + "/app",
+  entry: {
+    javascript: "./components/main.js",
+    html: "./index.html",
+    vendor: ["jquery","react","react-router"],
+  },
+  output: {
+    filename: "js/app.js",
+    path: __dirname + "/public",
+  },
+  plugins: [
+    new ExtractTextPlugin("./css/styles.css"),
+    new CommonsChunkPlugin("vendor", "./js/vendor.js", Infinity),
+  ],
+  devtool: 'source-map',
+  module: {
+    loaders: [
+      // loader for React JSX
+      {
+    test: /\.js$/,
+    exclude: /node_modules/,
+    loader: "babel",
+    query: {
+      presets: ['react']
+    }
+      },
+      // loader for HTML
+      {
+    test: /\.html$/,
+    loader: "file?name=[name].[ext]",
+      },
+      // loaders for Bootstrap CSS
+      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader?sourceMap") },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file?name=assets/[name].[ext]" },
+      { test: /\.(woff|woff2)$/, loader:"url?name=assets/[name].[ext]&prefix=font/&limit=5000" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?name=assets/[name].[ext]&limit=10000&mimetype=application/octet-stream" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?name=assets/[name].[ext]&limit=10000&mimetype=image/svg+xml" }
+    ],
+  },
+}
+</code></pre>
+
+<p>This will bundle your JavaScript into <code>public/js/app.js</code>, the JQuery
+and React code into <code>public/js/vendor.js</code>, and both the Bootstrap CSS
+and your custom CSS into <code>public/css/style.css</code>.</p>
+
+<p>Your app needs to link to these files, so ensure <code>app/index.html</code> looks
+something like this:</p>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Listomatic&lt;/title&gt;
+    &lt;link href='http://fonts.googleapis.com/css?family=Romanesco' rel='stylesheet' type='text/css'&gt;
+    &lt;link rel="stylesheet" href="css/styles.css" /&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;div id="content"&gt;&lt;/div&gt;
+    &lt;script src="js/vendor.js"&gt;&lt;/script&gt;
+    &lt;script src="js/app.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+
+<p>In addition, your server should treat the files in <code>public</code> as static files,
+so your setup for Express should contain:</p>
+
+<pre><code>app.use(express.static('public'));</code></pre>
+
+<p>You can now run:</p>
+
+<pre><code>webpack</code></pre>
+
+<p>and this should produce all the files you need for your front-end in
+the <code>public</code> directory. You can alternatively run:</p>
+
+<pre><code>webpack --progress --colors -d --watch</code></pre>
+
+<p>This will cause webpack to stay active and reproduce the bundles any
+time you change your code. The &quot;-d&quot; option will produce source maps
+so that your code is easier to debug.</p>
+
+<h2>Understanding webpack</h2>
+
+<p>I&#39;ll walk through the webpack configuration a few lines at a time so you
+can understand what it is doing.</p>
+
+<pre><code>context: __dirname + "/app",</pre></code>
+
+Indicates where you will store your front-end code, in this case in
+the `app` subdirectory.
+
+<pre><code>entry: {
+    javascript: "./components/main.js",
+    html: "./index.html",
+    vendor: ["jquery","react","react-router"],
+  },
+</pre></code>
+
+Declares the entry points for webpack. It will scan the `javascript` entry to find any
+dependencies. For example, my main.js file includes:
+
+<pre><code>var App = require("./app.js");
+var Home = require("./home.js");
+var List = require("./list.js");
+var Login = require("./login.js");
+var Register = require("./register.js");
+</pre></code>
+
+webpack will start at `main.js`, then follow all the files that it requires, recursively,
+and compile them into one bundle. Likewise, `index.html` is an entry point; we'll configure
+webpack to copy this file to `public`. The vendor entry points will be compiled into
+a separate bundle, so that code from third-parties is separated from your app code.
+
+<pre><code>output: {
+    filename: "js/app.js",
+    path: __dirname + "/public",
+  },
+</pre></code>
+
+Determines where the bundles will be created. The main JavaScript bundle will be
+placed in `public/js/app.js`. Notice that is the path we used in `index.html`.
+
+<pre><code>plugins: [
+    new ExtractTextPlugin("./css/styles.css"),
+    new CommonsChunkPlugin("vendor", "./js/vendor.js"),
+  ],
+</code></pre>
+
+<p>Loads several plugins. ExtractTextPlugin will take CSS out of your JavaScript
+bundle and put them into a separate file, in <code>public/css/styles.css</code>. CommonsChunkPlugin
+creates a separate bundle for the vendor files in <code>public/js/vendor.js</code>. Notice again
+this is the path we used in <code>index.html</code>.</p>
+
+<p><pre><code>// loader for React JSX
+{
+    test: /.js$/,
+    exclude: /node_modules/,
+    loader: &quot;babel&quot;,
+    query: {
+        presets: [&#39;react&#39;]
+    }
+},
+</pre></code></p>
+
+<p>Loaders are used to collect your code into bundles. This loader will run
+for any files that end in <code>.js</code> and use babel to compile your JavaScript
+code. By setting the <code>react</code> preset, babel will convert JSX to plain
+JavaScript. Note that you could also set this up to use ES6.</p>
+
+<p><pre><code>// loader for HTML
+{
+    test: /.html$/,
+    loader: &quot;file?name=[name].[ext]&quot;,
+},
+</pre></code></p>
+
+<p>This loader runs for any files that end in <code>.html</code> and copies them
+using the file loader to the <code>public</code> directory, keeping their name
+and extension unmodified.</p>
+
+<p><pre><code>// loaders for Bootstrap CSS
+{ test: /.css$/, loader: ExtractTextPlugin.extract(&quot;style-loader&quot;,&quot;css-loader?sourceMap&quot;) },
+{ test: /.eot(\?v=\d+.\d+.\d+)?$/, loader: &quot;file?name=assets/[name].[ext]&quot; },
+{ test: /.(woff|woff2)$/, loader:&quot;url?name=assets/[name].[ext]&amp;prefix=font/&amp;limit=5000&quot; },
+{ test: /.ttf(\?v=\d+.\d+.\d+)?$/, loader: &quot;url?name=assets/[name].[ext]&amp;limit=10000&amp;mimetype=application/octet-stream&quot; },
+{ test: /.svg(\?v=\d+.\d+.\d+)?$/, loader: &quot;url?name=assets/[name].[ext]&amp;limit=10000&amp;mimetype=image/svg+xml&quot; }
+</pre></code></p>
+
+<p>These loaders are used for Bootstrap CSS. The first one runs for any
+files ending in <code>.css</code> and uses style loader to compile all the CSS
+into a bundle. The ExtractTextPlugin will save this in a separate
+file, rather than including it in the main JavaScript bundle. The
+second one finds <code>.eot</code> files, which are embedded fonts that Bootstrap
+uses.  These are copied with the file loader into the <code>assets</code>
+directory.  The third one finds <code>.woff</code> files, which are also fonts,
+and these are referenced with URLs in the Bootstrap source. These are
+loaded with the URL loader, which returns a URL for the CSS to
+reference. Similar loaders are used for the <code>.ttf</code> and <code>.svg</code> files
+that Bootstrap references.</p>
+
+<h2>Homework</h2>
+
+<p>Setup webpack for your project. Show your configuration to your partner and
+discuss any differences or difficulties.</p>
+
+
+
+      </div>
+    </div>
+
+    <div id="footer">
+      <div class="row">
+	<div id="license">
+	  <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a>
+	  <p></p>
+	</div>
+      </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/foundation/5.3.3/js/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+      $(document).foundation();
+    </script>
+
+  </body>
+</html>

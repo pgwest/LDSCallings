@@ -14,14 +14,20 @@ import Without from './components/Without.js'
 import GlobalNav from './components/GlobalNav.js'
 import Profile from './components/Profile.js'
 import Members from './components/Members.js'
+import Home from './components/Home.js'
+import login from './components/login.js'
+import register from './components/register.js'
+import editTables from './components/editTables.js'
+
+const createBrowserHistory = require('history/lib/createBrowserHistory');
 
 
-
-
+//ReactDOM.render(
+//    <Router history={createBrowserHistory()}>
 ReactDOM.render(
-    <Router>
+    <Router history={createBrowserHistory()}>
     <Route path='/' component={App}>
-      <IndexRoute component={App} />
+      <IndexRoute component={Home} />
       <Route path='Current' component={Current} />
       <Route path='Dashboard' component={Dashboard} />
       <Route path='Actions' component={Actions} />
@@ -30,6 +36,11 @@ ReactDOM.render(
       <Route path='GlobalNav' component={GlobalNav} />
       <Route path='Profile' component={Profile} />
       <Route path='Members' component={Members} />
+      <Route path='Home' component={Home} />
+      <Route path='login' component={login} />
+      <Route path='register' component={register} />
+      <Route path='editTables' component={editTables} />
+
     </Route>
     </Router>
                 , document.getElementById('root'));

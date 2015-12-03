@@ -1,6 +1,8 @@
 import React from "react";
 import ReactRouter from "react-router";
 var History = ReactRouter.History;
+import { Link } from 'react-router'
+
 
 import auth from "./auth.js";
 
@@ -35,7 +37,8 @@ var Login = React.createClass({
         return this.setState({
           error: true
         });
-      this.history.pushState(null, '/list');
+      console.log("logged in");
+      this.history.pushState(null, '/Dashboard');
     }.bind(this));
   },
 
@@ -52,6 +55,10 @@ var Login = React.createClass({
              <div className="alert">Invalid username or password.</div>
            ) : null}
         </form>
+    
+        <h2>Click here to register if you don't have an account.</h2>
+        <Link to="/register"><h3>Register</h3></Link>{' '}
+
       </div>
     );
   }

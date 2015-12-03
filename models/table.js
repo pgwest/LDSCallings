@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 import findOrCreate from 'mongoose-findorcreate';
 
-import User from './user.js';
+import User from './users.js';
 
 var tableSchema = new Schema({
   user: {type: ObjectId, ref: 'users'},
