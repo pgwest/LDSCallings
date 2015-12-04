@@ -2,7 +2,7 @@ import React from "react";
 import ReactRouter from "react-router";
 var History = ReactRouter.History;
 import { Link } from 'react-router'
-
+import EditableTable from './EditRowsTableList.js'
 
 import api from './api.js';
 import auth from "./auth.js";
@@ -12,51 +12,151 @@ var editCallings = React.createClass({
   // mixin for navigation
   mixins: [ History ],
 
+  //class Current extends React.Component {
+      // context so the component can access the router
+  contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
+
+  },
+
   // initial state
   getInitialState: function() {
     return {
-      // there was an error registering
-      error: false
+      // list of items in the todo list
+        tables: {
+            tables:[{
+      id: "id",
+      title: "Bishopric",
+      tableData :[{
+          id: "id",
+          calling: "Calling 0",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            key: "id1",
+          calling: "Calling 1",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 2",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ],
+      }, {
+                key: "id1",
+                title: "EQ",
+      tableData :[{
+          id: "id",
+          calling: "Calling 0",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id1",
+          calling: "Calling 1",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 2",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ]
+      },
+      {      key: "id2",
+             title: "RS",
+      tableData :[{
+          id: "id",
+          calling: "Calling 0",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id1",
+          calling: "Calling 1",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 2",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ]
+      },
+        {      key: "id3",
+               title: "YM",
+      tableData :[{
+          id: "id00",
+          calling: "Calling 00",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id01",
+          calling: "Calling 01",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 02",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     },{       id: "id3",
+          calling: "Calling 03",
+          name: 'Jonathon Tres3',
+          date: '9/8/2004'   
+     }
+     ]
+      },
+     {      key: "id4",
+               title: "YW",
+      tableData :[{
+          id: "id00",
+          calling: "Calling 00",
+          name: 'Jonathon',
+          date: '9/9/2000'
+     },{
+            id: "id01",
+          calling: "Calling 01",
+          name: 'Jonathon Tr',
+          date: '9/8/2002'   
+     }, {       id: "id2",
+          calling: "Calling 02",
+          name: 'Jonathon Tres',
+          date: '9/8/2003'   
+     }
+     ]
+      }   
+     ],
+        },
     };
   },
 
-  // handle regiser button submit
-  addTable: function(event) {
-    // prevent default browser submit
-    event.preventDefault();
-    // get data from form
-    var organization = this.refs.organization.value;
-
-    if (!organization) {
-      return;
-    }
-    // register via the API
-//    auth.register(name, username, password, function(loggedIn) {
-//      // register callback
-//      if (!loggedIn)
-//        return this.setState({
-//          error: true
-//        });
-//        console.log("registered");
-//      this.history.pushState(null, '/login');
-//    }.bind(this));
+//  // when the component loads, get the list items
+//  componentWillMount: function() {
+//    api.getTables(this.tableSet);
 //  },
-      api.addTable(organization, this.tableSet);
+  // when the component loads, get the list items
+  componentDidMount: function() {
+    api.getTables(this.tableSet);
   },
 
-      
+  // reload the list of items
+  reload: function() {
+    api.getTables(this.tableSet);
+  },
+
   // callback for getting the list of items, sets the list state
   tableSet: function(status, data) {
+      console.log(status);
+//      console.log(data);
     if (status) {
       // set the state for the list of items
-        console.log("table added");
       this.setState({
-
+        tables: data
       });
+        console.log(this.state.tables);
     } else {
       // if the API call fails, redirect to the login page
-//      this.context.router.transitionTo('/login');
-        console.log("failed to add table");
+        this.context.history.pushState(null, '/login');
     }
   },
       
@@ -64,59 +164,10 @@ var editCallings = React.createClass({
   render: function() {
     return (
       <div>
-        <h2>Edit Callings</h2>
+        <h1>Edit Callings</h1>
         <br></br>
-        <div className="col-md-3">
-        <h3>Add Callings</h3>
-        <form className="form-vertical" onSubmit={this.addTable}>
-          <input type="text" placeholder="Organization" ref="organization" autoFocus={true} />
-          <input className="btn btn-warning" type="submit" value="Add Organization" />
-          {this.state.error ? (
-             <div className="alert">Please fill enter the organization name in the provided field.</div>
-           ) : null }
-        </form>
-    <br></br>
-    </div>
-    <div className="row">
-        <div className="col-md-12">
-        <h3>Remove Callings</h3>
+        <EditableTable {...this.state.tables} />
 
-    <br></br>
-        </div>
-    </div>
-    
-    <div className="col-md-4">
-        <div className="panel panel-primary">
-      <div className="panel-heading">Organizations</div>
-      <div className="panel-body">
-        <p>...</p>
-      </div>
-
-      <ul className="list-group">
-        <li className="list-group-item">Cras justo odio</li>
-        <li className="list-group-item">Dapibus ac facilisis in</li>
-        <li className="list-group-item">Morbi leo risus</li>
-        <li className="list-group-item">Porta ac consectetur ac</li>
-        <li className="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
-    </div>
-     <div className="col-md-4">
-        <div className="panel panel-danger">
-      <div className="panel-heading">Organizations to Delete</div>
-      <div className="panel-body">
-        <p>...</p>
-      </div>
-
-      <ul className="list-group">
-        <li className="list-group-item">Cras justo odio</li>
-        <li className="list-group-item">Dapibus ac facilisis in</li>
-        <li className="list-group-item">Morbi leo risus</li>
-        <li className="list-group-item">Porta ac consectetur ac</li>
-        <li className="list-group-item">Vestibulum at eros</li>
-      </ul>
-    </div>
-    </div>
     
       </div>
     );

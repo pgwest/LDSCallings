@@ -63,9 +63,7 @@ class GlobalNav extends React.Component {
                   <Link to="/members" style={styles.link} activeStyle={styles.activeLink}>Member Directory</Link>{' '}
           <Link to="/myActions" style={styles.link} activeStyle={styles.activeLink}>My Actions <span className="badge">2</span></Link>{' '}
         
-          <Link to="/register" style={styles.link} activeStyle={styles.activeLink}>Register</Link>{' '}
 
-          <Link to="/login" style={styles.link} activeStyle={styles.activeLink}>Login</Link>{' '}
 
 
         
@@ -80,3 +78,9 @@ class GlobalNav extends React.Component {
 }
 
 module.exports = GlobalNav;
+
+
+//
+//          <Link to="/register" style={styles.link} activeStyle={styles.activeLink}>Register</Link>{' '}
+//
+//          <Link to="/login" style={styles.link} activeStyle={styles.activeLink}>Login</Link>{' '}

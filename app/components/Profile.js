@@ -43,7 +43,7 @@ var Profile = React.createClass({
 //  }
 
   logOut: function() {
-    alert('log out')
+    alert('functionality not yet added')
   },
   
   getInitialState: function() {
@@ -117,7 +117,7 @@ var Profile = React.createClass({
         <button onClick={this.logOut}>Edit Notifications</button>
         <br/>
         <br/>
-        <button onClick={this.logOut}>Log Out</button>
+        <br></br>
         </div>
       </div>
     )
