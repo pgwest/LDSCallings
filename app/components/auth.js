@@ -2,7 +2,7 @@ import $ from "jquery";
 
 // authentication object
 var auth = {
-  register: function(name, username, password, cb) {
+  register: function(name, username, password, calling, email, cb) {
     // submit request to server, call the callback when complete
     var url = "/api/users/register";
     $.ajax({
@@ -12,12 +12,16 @@ var auth = {
       data: {
         name: name,
         username: username,
-        password: password
+        password: password,
+        calling: calling,
+        email: email,
       },
       // on success, store a login token
       success: function(res) {
         localStorage.token = res.token;
         localStorage.name = res.name;
+        localStorage.calling = res.calling;
+        localStorage.email = res.email;
         this.onChange(true);
         if (cb)
           cb(true);
@@ -57,6 +61,8 @@ var auth = {
         // on success, store a login token
         localStorage.token = res.token;
         localStorage.name = res.name;
+        localStorage.calling = res.calling;
+        localStorage.email = res.email;
         this.onChange(true);
         if (cb)
           cb(true);
@@ -78,10 +84,18 @@ var auth = {
   getName: function() {
     return localStorage.name;
   },
+  
+  getCalling: function() {
+    return localStorage.calling;
+  },
+  getEmail: function() {
+    return localStorage.email;
+  },
   // logout the user, call the callback when complete
   logout: function(cb) {
     delete localStorage.token;
-    this.onChange(false);
+//    this.onChange(false);
+    console.log('logged out');
     if (cb) cb();
   },
   // check if user is logged in

@@ -6,6 +6,11 @@ import auth from "./auth.js";
 
 // Register page, shows the registration form and redirects to the list if login is successful
 var Register = React.createClass({
+      contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
+
+  },
   // mixin for navigation
   mixins: [ History ],
 
@@ -25,18 +30,25 @@ var Register = React.createClass({
     var name = this.refs.name.value;
     var username = this.refs.username.value;
     var password = this.refs.password.value;
-    if (!name || !username || !password) {
+    var calling = this.refs.calling.value;
+    var email = this.refs.email.value;
+      console.log(email);
+      
+    if (!name || !username || !password || !calling || !email) {
+        console.log('value missing');
       return;
     }
     // register via the API
-    auth.register(name, username, password, function(loggedIn) {
+    auth.register(name, username, password, calling, email,  function(loggedIn) {
       // register callback
       if (!loggedIn)
         return this.setState({
           error: true
         });
         console.log("registered");
-      this.history.pushState(null, '/login');
+//      this.history.pushState(null, '/login');
+      this.context.history.pushState(null, '/');
+
     }.bind(this));
   },
 
@@ -49,6 +61,8 @@ var Register = React.createClass({
           <input type="text" placeholder="Name" ref="name" autoFocus={true} />
           <input type="text" placeholder="Username" ref="username"/>
           <input type="password" placeholder="Password" ref="password"/>
+         <input type="text" placeholder="Calling" ref="calling"/>
+         <input type="email" placeholder="Email" ref="email"/>
           <input className="btn btn-warning" type="submit" value="Register" />
           {this.state.error ? (
              <div className="alert">Invalid username or password.</div>

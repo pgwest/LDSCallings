@@ -2,6 +2,27 @@ import $ from "jquery";
 
 // API object
 var api = {
+      // get the list of tables, call the callback when complete
+  getCalling: function(cb) {
+      console.log("in api.js get tables function");
+    var url = "/api/calling";
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'GET',
+      headers: {'Authorization': localStorage.token},
+      success: function(res) {
+        if (cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        // if there is an error, remove the login token
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }
+    });
+  },
   // get the list of tables, call the callback when complete
   getTables: function(cb) {
       console.log("in api.js get tables function");

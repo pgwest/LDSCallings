@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import auth from './auth.js'
 
 const dark = 'hsl(200, 20%, 20%)'
 const light = '#fff'
@@ -70,7 +71,7 @@ class GlobalNav extends React.Component {
         
         </div>
         <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">My Account <span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link> <button style={styles.button} onClick={this.logOut}>Log Out</button>
+          <Link style={styles.link} to="/profile">My Account <span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link> <button style={styles.button} onClick={auth.logout}>Log Out</button>
 
         </div>
       </div>

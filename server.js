@@ -68,6 +68,10 @@ app.post('/api/users/register', function (req, res) {
       // if this username is not taken, then create a user record
       user.name = req.body.name;
       user.set_password(req.body.password);
+      user.calling = req.body.calling;
+      user.email = req.body.email;
+//      console.log(user.email);
+        
       user.save(function(err) {
 	if (err) {
 	  res.sendStatus("403");
@@ -76,7 +80,7 @@ app.post('/api/users/register', function (req, res) {
         // create a token
 	var token = User.generateToken(user.username);
         // return value is JSON containing the user's name and token
-        res.json({name: user.name, token: token});
+        res.json({name: user.name, token: token, calling: user.calling, email: user.email});
       });
     } else {
       // return an error if the username is taken
@@ -98,8 +102,36 @@ app.post('/api/users/login', function (req, res) {
       // create a token
       var token = User.generateToken(user.username);
       // return value is JSON containing user's name and token
-      res.json({name: user.name, token: token});
+      res.json({name: user.name, token: token, calling: user.calling, email: user.email});
     } else {
+      res.sendStatus(403);
+    }
+  });
+});
+
+// get all items for the user
+//get all tables for the user
+//app.get('/api/items', function (req,res) 
+app.get('/api/calling', function (req,res) {
+  // validate the supplied token
+
+    console.log("in api get calling");
+
+    var user = User.verifyToken(req.headers.authorization, function(user) {
+//              console.log(user);
+    if (user) {
+      // if the token is valid, find all the user's items and return them
+      User.find({user:user.id}, function(err, users) {
+	if (err) {
+        console.log('user not found');
+	  res.sendStatus(403);
+	  return;
+	}
+	// return value is the list of items as JSON
+	res.json({users: user.calling});
+      });
+    } else {
+        console.log('user = false on get');
       res.sendStatus(403);
     }
   });

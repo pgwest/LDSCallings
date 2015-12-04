@@ -23,7 +23,7 @@ styles.wrapper = {
 }
 
   var CurrentTableNames = React.createClass({
-    onChange: function(){
+    onChange: function(e){
         console.log('selected');
     },
     render: function() {
@@ -33,9 +33,9 @@ styles.wrapper = {
           tableMap[tableDataProps.title] = tableDataProps.id;
         return     <div className="input-group">
       <span className="input-group-addon">
-        <input type="checkbox" aria-label="..." />
+        <input type="checkbox" aria-label="..."/>
       </span>
-        <button type="button" className="list-group-item" style={styles.wrapper}>{tableDataProps.title}</button>
+        <p className="list-group-item" style={styles.wrapper}>{tableDataProps.title}</p>
     </div>
       });
 //        console.log(list);
