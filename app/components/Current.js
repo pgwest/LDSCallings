@@ -160,7 +160,7 @@ var Current = React.createClass({
   getInitialState: function() {
     return {
       // list of items in the todo list
-        options: {
+        tables: {
             tables:[{
       id: "id",
       title: "Bishopric",
@@ -266,6 +266,10 @@ var Current = React.createClass({
     };
   },
 
+//  // when the component loads, get the list items
+//  componentWillMount: function() {
+//    api.getTables(this.tableSet);
+//  },
   // when the component loads, get the list items
   componentDidMount: function() {
     api.getTables(this.tableSet);
@@ -283,25 +287,33 @@ var Current = React.createClass({
     if (status) {
       // set the state for the list of items
       this.setState({
-//        tables: data.tables
+        tables: data
       });
+        console.log(this.state.tables);
     } else {
       // if the API call fails, redirect to the login page
-//        this.context.history.pushState(null, '/login');
+        this.context.history.pushState(null, '/login');
     }
   },
 //      mixins: [ History ],
 
+//                <CurrentTableList {...this.state.options}/>
+//        <h2>begin third list</h2>
+//        <div className="row"  style={styles.border}>
+//                </div>
+//     <h2>begin second list</h2>
+//
+//
+//        <CurrentTableList {...options} style={styles.border}/>
+    
+    
   render: function() {
     return (
       <div style={styles.border}>
         
          <div className="container-fluid" >
-            <CurrentTableList {...this.state.options}/>
-        <h2>begin second list</h2>
-        <div className="row"  style={styles.border}>
-                </div>
-        <CurrentTableList {...options} style={styles.border}/>
+                    <CurrentTableList {...this.state.tables}/>
+       
                 <div className="row"  style={styles.border}>
                 </div>
                 <div className="col-md-3 col-md-12" style={styles.wrapper}>

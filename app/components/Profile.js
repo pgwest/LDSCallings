@@ -50,12 +50,13 @@ class Profile extends React.Component {
         <br> </br>
         <h1>Manage LDS Callings App</h1>
         
-        <h3  style={styles.headings}>Edit Organizations</h3> 
-        <button onClick={this.logOut}>Edit Organizations</button>
+        <h3>Edit Organizations</h3> 
+        
+        <Link to="/editTables"><h4>Edit Organizations</h4></Link>{' '}
         
         <h3>Edit Callings</h3> 
 
-        <Link to="/editTables"><h4>Edit Organizations</h4></Link>{' '}
+        <Link to="/editCallings"><h4>Edit Callings</h4></Link>{' '}
         
         <h3>Import Ward Members</h3>
         <button onClick={this.logOut}>Import Ward Membors</button>

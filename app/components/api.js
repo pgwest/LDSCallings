@@ -4,6 +4,7 @@ import $ from "jquery";
 var api = {
   // get the list of tables, call the callback when complete
   getTables: function(cb) {
+      console.log("in api.js get tables function");
     var url = "/api/tables";
     $.ajax({
       url: url,

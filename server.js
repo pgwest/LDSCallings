@@ -45,17 +45,17 @@ mongoose.connection.on('error', function() {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
-  app.get('*', function response(req, res) {
+//  app.get('*', function response(req, res) {
 //    res.header("Content-Type", "application/javascript");
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
-
-    res.end();
-  });
+//    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+//
+//    res.end();
+//  });
 } else {
   app.use(express.static(__dirname + '/dist'));
-  app.get('*', function response(req, res) {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
+//  app.get('*', function response(req, res) {
+//    res.sendFile(path.join(__dirname, 'dist/index.html'));
+//  });
 }
 
 // from api.js in models...
@@ -110,8 +110,11 @@ app.post('/api/users/login', function (req, res) {
 //app.get('/api/items', function (req,res) 
 app.get('/api/tables', function (req,res) {
   // validate the supplied token
-  var user = User.verifyToken(req.headers.authorization, function(user) {
-              console.log(user);
+
+    console.log("in api get tables");
+
+    var user = User.verifyToken(req.headers.authorization, function(user) {
+//              console.log(user);
     if (user) {
       // if the token is valid, find all the user's items and return them
       Table.find({user:user.id}, function(err, tables) {
@@ -135,6 +138,7 @@ app.get('/api/tables', function (req,res) {
 app.post('/api/tables', function (req,res) {
   // validate the supplied token
   // get indexes
+    console.log("in post new table");
   var user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, create the item for the user

@@ -49,7 +49,7 @@ var Register = React.createClass({
           <input type="text" placeholder="Name" ref="name" autoFocus={true} />
           <input type="text" placeholder="Username" ref="username"/>
           <input type="password" placeholder="Password" ref="password"/>
-          <input className="btn" type="submit" value="Register" />
+          <input className="btn btn-warning" type="submit" value="Register" />
           {this.state.error ? (
              <div className="alert">Invalid username or password.</div>
            ) : null }

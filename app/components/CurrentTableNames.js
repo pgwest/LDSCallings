@@ -30,15 +30,12 @@ styles.headings = {
         console.log(this.props);
       var list = this.props.tables.map(function(tableDataProps){
 //          console.log(tableDataProps);
-        return  <div className="col-md-3 col-md-12" style={styles.wrapper}>
-                    <h1 style={styles.headings}>{tableDataProps.title}</h1>
-                    <CurrentTable jobs={tableDataProps} /> 
-                </div>
+        return <li className="list-group-item">{tableDataProps.title}</li>
       });
 //        console.log(list);
-      return <div>
+      return <ul className="list-group">
         {list}
-      </div>
+      </ul>
     }
   });
 

@@ -18,6 +18,8 @@ import Home from './components/Home.js'
 import login from './components/login.js'
 import register from './components/register.js'
 import editTables from './components/editTables.js'
+import editCallings from './components/editCallings.js'
+
 
 const createBrowserHistory = require('history/lib/createBrowserHistory');
 
@@ -40,6 +42,8 @@ ReactDOM.render(
       <Route path='login' component={login} />
       <Route path='register' component={register} />
       <Route path='editTables' component={editTables} />
+      <Route path='editCallings' component={editCallings} />
+
 
     </Route>
     </Router>
