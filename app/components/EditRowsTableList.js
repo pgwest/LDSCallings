@@ -1,9 +1,12 @@
 'use strict';
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
+import api from './api.js'
 
 const styles = {};
     
+var tables = {};
 
 styles.wrapper = {
 //  background: '#fffff',
@@ -25,13 +28,102 @@ styles.headings = {
 
 }
 
-  var CurrentTableList = React.createClass({
-    render: function() {
+
+const Example = React.createClass({
+
+  getInitialState() {
+    return { showModal: false };
+  },
+
+  close() {
+    this.setState({ showModal: false });
+  },
+
+  open() {
+    this.setState({ showModal: true });
+  },
+
+    login: function(event) {
+    // prevent default browser submit
+    event.preventDefault();
+    // get data from form
+    var callingName = this.refs.username.value;
+    if (!callingName) {
+      return;
+    }
+//        console.log(callingName);
 //        console.log(this.props);
+        this.props.tableData.push({
+      id: this.props._id,
+      calling: callingName,
+      name: "",
+      date: ''
+    });
+        console.log(this.props);
+        api.updateTable(this.props);
+    },
+    
+  render() {
+    var popover = <Popover title="popover">very popover. such engagement</Popover>;
+    var tooltip = <Tooltip>wow.</Tooltip>;
+
+    
+    
+    return (
+      <div>
+        <Button
+          bsStyle="primary"
+          bsSize="small"
+          onClick={this.open}
+        >
+          Insert
+        </Button>
+
+        <Modal show={this.state.showModal} onHide={this.close}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Text in a modal</h4>
+        <form className="form-vertical" onSubmit={this.login}>
+          <input type="text" placeholder="Calling Name" ref="username" autoFocus={true} />
+          <input className="btn btn-warning" type="submit" value="Add Row" />
+          {this.state.error ? (
+             <div className="alert">Invalid.</div>
+           ) : null}
+        </form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.close}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+  }
+});
+
+
+
+  var CurrentTableList = React.createClass({
+        getInitialState() {
+//                  console.log('tableprops');
+//        console.log(this.props);
+            return{
+//        tables : this.props
+            }
+  },
+    render: function() {
+//                  console.log('tableprops');
+//        console.log(this.props);
+//        console.log('table');
+//        console.log(this.state.tables);
+//        this.props = tables;
       var list = this.props.tables.map(function(tableDataProps){
+//          console.log('tabledataprops');
 //          console.log(tableDataProps);
         return  <div className="col-md-6 col-md-12" style={styles.wrapper}>
                     <h2 style={styles.headings}>{tableDataProps.title}</h2>
+                    <Example {...tableDataProps} />
                     <CurrentTable jobs={tableDataProps} /> 
                 </div>
       });
@@ -92,9 +184,19 @@ var cellEditProp = {
 
 var selectRowProp = {
   mode: "checkbox", // or checkbox
-  clickToSelect: true
+  clickToSelect: true,
+  onSelect: onSelect    
 };
 
+function onSelect(row, isSelected){
+    console.log('on select');
+    console.log(row);
+    console.log(isSelected);
+}
+
+//var options = {
+//    onSelect: onSelect
+//}
  var CurrentTable = React.createClass({
   render(){
 //      console.log("jobs = " + jobs + jobs[1].calling);
@@ -102,7 +204,7 @@ var selectRowProp = {
       jobs = this.props.jobs.tableData;
       
     return (
-      <BootstrapTable data={jobs} cellEdit={cellEditProp} striped={true} hover={true} condensed={true} insertRow={true} deleteRow={true} selectRow={selectRowProp}>
+      <BootstrapTable data={jobs} cellEdit={cellEditProp} striped={true} hover={true} condensed={true} insertRow={false} deleteRow={true} selectRow={selectRowProp}>
           <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center">Job ID</TableHeaderColumn>
           <TableHeaderColumn dataField="calling" width="80" editable={{type:'textarea'}} dataAlign="center">Calling</TableHeaderColumn>
           <TableHeaderColumn dataField="name" width="120" editable={{type:'textarea'}} dataAlign="center">Member Name</TableHeaderColumn>

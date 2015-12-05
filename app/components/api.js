@@ -72,7 +72,11 @@ var api = {
   },
   // update an table, call the callback when complete
   updateTable: function(table, cb) {
-    var url = "/api/tables/" + table.id;
+      console.log(table);
+      console.log(table.title);
+      console.log(table.tableData);
+      console.log(table._id);
+    var url = "/api/tables/" + table._id;
     $.ajax({
       url: url,
       contentType: 'application/json',

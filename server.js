@@ -23,40 +23,40 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-if (isDeveloping) {
-  const compiler = webpack(config);
-  const middleware = webpackMiddleware(compiler, {
-    publicPath: config.output.publicPath,
-    contentBase: 'src',
-    stats: {
-      colors: true,
-      hash: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      modules: false
-    }
-  });
-    
-mongoose.connect('mongodb://localhost/ldsCallings');
-mongoose.connection.on('error', function() {
-  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
-});
-
-  app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
-//  app.get('*', function response(req, res) {
-//    res.header("Content-Type", "application/javascript");
-//    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+//if (isDeveloping) {
+//  const compiler = webpack(config);
+//  const middleware = webpackMiddleware(compiler, {
+//    publicPath: config.output.publicPath,
+//    contentBase: 'src',
+//    stats: {
+//      colors: true,
+//      hash: false,
+//      timings: true,
+//      chunks: false,
+//      chunkModules: false,
+//      modules: false
+//    }
+//  });
+//    
+//mongoose.connect('mongodb://localhost/ldsCallings');
+//mongoose.connection.on('error', function() {
+//  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
+//});
 //
-//    res.end();
-//  });
-} else {
-  app.use(express.static(__dirname + '/dist'));
-//  app.get('*', function response(req, res) {
-//    res.sendFile(path.join(__dirname, 'dist/index.html'));
-//  });
-}
+//  app.use(middleware);
+//  app.use(webpackHotMiddleware(compiler));
+////  app.get('*', function response(req, res) {
+////    res.header("Content-Type", "application/javascript");
+////    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+////
+////    res.end();
+////  });
+//} else {
+//  app.use(express.static(__dirname + '/dist'));
+////  app.get('*', function response(req, res) {
+////    res.sendFile(path.join(__dirname, 'dist/index.html'));
+////  });
+//}
 
 // from api.js in models...
 
@@ -184,7 +184,7 @@ Table.create({title:req.body.table.title,user:user.id,tableData:req.body.table.t
 	res.json({table:table});
       });
     } else {
-      console.log('user = false on post');
+      console.log('user = false on post new table');
       res.sendStatus(403);
     }
   });
@@ -223,12 +223,13 @@ app.get('/api/tables/:table_id', function (req,res) {
 //app.put('/api/items/:item_id', function (req,res) {
 app.put('/api/tables/:table_id', function (req,res) {
   // validate the supplied token
-  user = User.verifyToken(req.headers.authorization, function(user) {
+  var user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, then find the requested item
 //      Item.findById(req.params.item_id, function(err,item) {
       Table.findById(req.params.table_id, function(err,table) {
 	if (err) {
+      console.log('err in findById update table');
 	  res.sendStatus(403);
 	  return;
 	}
@@ -249,6 +250,8 @@ app.put('/api/tables/:table_id', function (req,res) {
         table.tableData = req.body.table.tableData;
         table.save(function(err) {
 	  if (err) {
+        console.log('err in update table');
+          console.log(err);
 	    res.sendStatus(403);
 	    return;
 	  }
@@ -257,6 +260,7 @@ app.put('/api/tables/:table_id', function (req,res) {
         });
       });
     } else {
+        console.log('user = false in update table');
       res.sendStatus(403);
     }
   });
@@ -284,7 +288,40 @@ app.delete('/api/tables/:table_id', function (req,res) {
   });
 });
 
+if (isDeveloping) {
+  const compiler = webpack(config);
+  const middleware = webpackMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    contentBase: 'src',
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false
+    }
+  });
+    
+mongoose.connect('mongodb://localhost/ldsCallings');
+mongoose.connection.on('error', function() {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
+});
 
+  app.use(middleware);
+  app.use(webpackHotMiddleware(compiler));
+  app.get('*', function response(req, res) {
+//    res.header("Content-Type", "application/javascript");
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+
+    res.end();
+  });
+} else {
+  app.use(express.static(__dirname + '/dist'));
+  app.get('*', function response(req, res) {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
+  });
+}
 
 //end from api.js in models...
 

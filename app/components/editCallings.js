@@ -3,9 +3,62 @@ import ReactRouter from "react-router";
 var History = ReactRouter.History;
 import { Link } from 'react-router'
 import EditableTable from './EditRowsTableList.js'
+import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
+
+//import ReactbBootstrap from 'react-bootstrap'
 
 import api from './api.js';
 import auth from "./auth.js";
+
+
+//const Example = React.createClass({
+//
+//  getInitialState() {
+//    return { showModal: false };
+//  },
+//
+//  close() {
+//    this.setState({ showModal: false });
+//  },
+//
+//  open() {
+//    this.setState({ showModal: true });
+//  },
+//
+//  render() {
+//    var popover = <Popover title="popover">very popover. such engagement</Popover>;
+//    var tooltip = <Tooltip>wow.</Tooltip>;
+//
+//    return (
+//      <div>
+//        <p>Click to get the full Modal experience!</p>
+//
+//        <Button
+//          bsStyle="primary"
+//          bsSize="large"
+//          onClick={this.open}
+//        >
+//          Launch demo modal
+//        </Button>
+//
+//        <Modal show={this.state.showModal} onHide={this.close}>
+//          <Modal.Header closeButton>
+//            <Modal.Title>Modal heading</Modal.Title>
+//          </Modal.Header>
+//          <Modal.Body>
+//            <h4>Text in a modal</h4>
+//
+//          </Modal.Body>
+//          <Modal.Footer>
+//            <Button onClick={this.close}>Close</Button>
+//          </Modal.Footer>
+//        </Modal>
+//      </div>
+//    );
+//  }
+//});
+
+
 
 // Register page, shows the registration form and redirects to the list if login is successful
 var editCallings = React.createClass({
@@ -146,13 +199,13 @@ var editCallings = React.createClass({
 
   // callback for getting the list of items, sets the list state
   tableSet: function(status, data) {
-//      console.log(status);
+//      .log(status);
 //      console.log(data);
     if (status) {
       // set the state for the list of items
-//      this.setState({
-//        tables: data
-//      });
+      this.setState({
+        tables: data
+      });
 //        console.log(this.state.tables);
     } else {
       // if the API call fails, redirect to the login page
