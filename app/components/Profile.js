@@ -78,10 +78,10 @@ var Profile = React.createClass({
     
   render: function() {
       
-      console.log(this.state.name);
-      console.log(auth.getName());
-      console.log(this.state.calling);
-      console.log(auth.getCalling());
+//      console.log(this.state.name);
+//      console.log(auth.getName());
+//      console.log(this.state.calling);
+//      console.log(auth.getCalling());
     return (
       <div>
         <div>

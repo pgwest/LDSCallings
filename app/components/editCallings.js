@@ -146,14 +146,14 @@ var editCallings = React.createClass({
 
   // callback for getting the list of items, sets the list state
   tableSet: function(status, data) {
-      console.log(status);
+//      console.log(status);
 //      console.log(data);
     if (status) {
       // set the state for the list of items
-      this.setState({
-        tables: data
-      });
-        console.log(this.state.tables);
+//      this.setState({
+//        tables: data
+//      });
+//        console.log(this.state.tables);
     } else {
       // if the API call fails, redirect to the login page
         this.context.history.pushState(null, '/login');
@@ -175,7 +175,6 @@ var editCallings = React.createClass({
 });
 
 module.exports = editCallings;
-
 
 
 //

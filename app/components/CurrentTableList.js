@@ -8,6 +8,7 @@ const styles = {};
 styles.wrapper = {
 //  background: '#fffff',
   color: '#28363D',
+  padding: '10px',
 
 }
 
