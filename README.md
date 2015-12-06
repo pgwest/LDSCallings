@@ -1,7 +1,7 @@
-# webpack-express-boilerplate
-A boilerplate for running a Webpack workflow in Node express
+# LDS Callings app
+A web application to manage ward callings
 
-Please read the following article: [The ultimate Webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup) to know more about this boilerplate.
+Please read the following article: [The ultimate Webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup) to know more about the boilerplate used to start this project.
 
 ## Major update to project
 Inspired by [this project](https://github.com/vesparny/react-kickstart) and the evolving of [react-transform](https://github.com/gaearon/react-transform-boilerplate) and [CSS Modules]((http://glenmaddern.com/articles/css-modules)), this project has gotten a major upgrade.
