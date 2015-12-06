@@ -6,15 +6,17 @@ import { Link } from 'react-router'
 
 import api from './api.js';
 import auth from "./auth.js";
-
+import List from 'react-list-select';
+import FilteredMultiSelect from 'react-filtered-multiselect'
+import Example from './organizationList.js'
+    
 var tableMap = {};
 //var currentTable = {};
-var toBeRemoved = {
-    tables : []
-};
+
 
 const styles = {};
     
+
 
 styles.wrapper = {
 //  background: '#fffff',
@@ -22,46 +24,115 @@ styles.wrapper = {
 
 }
 
-  var CurrentTableNames = React.createClass({
-    onChange: function(e){
-        console.log('selected');
-    },
-    render: function() {
-        console.log(this.props);
-      var list = this.props.tables.map(function(tableDataProps){
-//          console.log(tableDataProps);
-          tableMap[tableDataProps.title] = tableDataProps.id;
-        return     <div className="input-group">
-      <span className="input-group-addon">
-        <input type="checkbox" aria-label="..."/>
-      </span>
-        <p className="list-group-item" style={styles.wrapper}>{tableDataProps.title}</p>
-    </div>
-      });
-//        console.log(list);
-      return <div className="list-group">
-        {list}
-      </div>
+styles.padding = {
+//  background: '#fffff',
+  padding: '10px'
+
+}
+
+styles.margin = {
+//  background: '#fffff',
+  margin: '10px'
+
+}
+
+var CULTURE_SHIPS = [
+  {id: 1, name: '5*Gelish-Oplule'},
+  {id: 2, name: '7*Uagren'},
+// ...
+  {id: 249, name: 'Zero Gravitas'},
+  {id: 250, name: 'Zoologist'}
+]
+
+var Test = React.createClass({
+     contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
+
+  },
+
+  // initial state
+  getInitialState: function() {
+//          api.getTables(this.tableSet);
+    return {
+        data: {
+            tables: []
+        }
     }
-  });
+  },
+  reload: function() {
+    api.getTables(this.tableSet);
+  },
+
+  // callback for getting the list of items, sets the list state
+  tableSet: function(status, data) {
+      console.log(status);
+//      console.log(data);
+    if (status) {
+      // set the state for the list of items
+     CULTURE_SHIPS = data;
+      this.setState({
+        tables: data
+      });
+//        console.log(this.state.tables);
+    } else {
+      // if the API call fails, redirect to the login page
+        this.context.history.pushState(null, '/login');
+    }
+  },
+  render: function(){
+//      console.log("jobs = " + jobs + jobs[1].calling);
+//      console.log(this.props.jobs.tableData);
+//      jobs = this.props.jobs.tableData;
+//      api.getTables(this.tableSet);
+      if(this.state.tables){
+      CULTURE_SHIPS = [];
+      var temp = [];
+      console.log('this.state.table');
+          
+      console.log(this.state.tables);
+    
+      for (var i=0; i< this.state.tables.tables.length; i++){
+          console.log('data[i]');
+          console.log(this.state.tables.tables[i]);
+           temp.push(
+               {id: this.state.tables.tables[i]._id, name: this.state.tables.tables[i].name}
+           );
+      }
+      }
+      console.log(temp);
+      CULTURE_SHIPS = temp;
+      console.log('culture ships');
+      console.log(CULTURE_SHIPS);
+      if(!CULTURE_SHIPS){
+        console.log('culture ships');
+
+        CULTURE_SHIPS = [
+  {id: 1, name: '5*Gelish-Oplule'},
+  {id: 2, name: '7*Uagren'},
+// ...
+  {id: 249, name: 'Zero Gravitas'},
+  {id: 250, name: 'Zoologist'}
+]
+      }
+      console.log(CULTURE_SHIPS);
+//      console.log('in test');
+    return (
+        
+      <div>
+        <p>
+        </p>
+      </div>
+    );
+  }
+});
 
 
-  var CurrentTableNamesToRemove = React.createClass({
-    render: function() {
-        console.log(this.props);
-        console.log(toBeRemoved);
-      var list = this.props.tables.map(function(tableDataProps){
-//          console.log(tableDataProps);
-          tableMap[tableDataProps.title] = tableDataProps.id;
-        return <button type="button" className="list-group-item" style={styles.wrapper}>{tableDataProps.title}</button>
-      });
-//        console.log(list);
-      return <div className="list-group">
-        {list}
-      </div>
-    }
-  });
-// Register page, shows the registration form and redirects to the list if login is successful
+
+
+
+
+
 var editTables = React.createClass({
   // mixin for navigation
   mixins: [ History ],
@@ -75,7 +146,7 @@ var editTables = React.createClass({
       tables: {
             tables:[{
       id: "id",
-      title: "First Org.",
+      title: "First Organization",
       tableData :[{
           id: "id",
           calling: "Calling 0",
@@ -126,25 +197,17 @@ var editTables = React.createClass({
     if (!organization) {
       return;
     }
-    // register via the API
-//    auth.register(name, username, password, function(loggedIn) {
-//      // register callback
-//      if (!loggedIn)
-//        return this.setState({
-//          error: true
-//        });
-//        console.log("registered");
-//      this.history.pushState(null, '/login');
-//    }.bind(this));
-//  },
+
       api.addTable(organization, this.tableSet);
+            this.forceUpdate();
+
   },
 
       // handle regiser button submit
   moveTable: function(event) {
     // prevent default browser submit
     event.preventDefault();
-
+      console.log(moveTable);
   },
       
   // handle regiser button submit
@@ -157,17 +220,7 @@ var editTables = React.createClass({
     if (!organization) {
       return;
     }
-    // register via the API
-//    auth.register(name, username, password, function(loggedIn) {
-//      // register callback
-//      if (!loggedIn)
-//        return this.setState({
-//          error: true
-//        });
-//        console.log("registered");
-//      this.history.pushState(null, '/login');
-//    }.bind(this));
-//  },
+
       api.deleteTable(organization, this.tableSet);
   },    
     
@@ -177,6 +230,7 @@ var editTables = React.createClass({
       // set the state for the list of items
         console.log("table added");
       this.setState({
+        tables: data
 
       });
     } else {
@@ -185,19 +239,34 @@ var editTables = React.createClass({
         console.log("failed to add table");
     }
   },
-      
+    
+    // callback for getting the list of items, sets the list state
+
+    
   // show the registration form
   render: function() {
 //      console.log("in edit orgs");
 //      console.log(this.state.tables);
     return (
       <div>
+        <div className="col-md-1">
+        </div>
         <h2>Edit Organizations</h2>
         <br></br>
+        <div className="col-md-1">
+        </div>
+      <div className="col-md-10">
+        <div className="panel panel-primary">
+      <div className="panel-heading">Add</div>
+      <div className="panel-body"> 
+        <div className="col-md-1">
+        </div>
         <div className="col-md-3">
-        <h3>Add Organizations</h3>
+        <h2>Add Organizations</h2>
         <form className="form-vertical" onSubmit={this.addTable}>
-          <input type="text" placeholder="Organization" ref="organization" autoFocus={true} />
+          <input type="text" placeholder="Organization" ref="organization" autoFocus={true}/>
+          <br/>
+          <br/>
           <input className="btn btn-warning" type="submit" value="Add Organization" />
           {this.state.error ? (
              <div className="alert">Please fill enter the organization name in the provided field.</div>
@@ -205,40 +274,42 @@ var editTables = React.createClass({
         </form>
     <br></br>
     </div>
+        </div>
+
+    </div>
+    </div>
     <div className="row">
         <div className="col-md-12">
-        <h3>Remove Organization</h3>
 
     <br></br>
         </div>
     </div>
     
-    <div className="col-md-4">
+    <div className="col-md-1">
+    </div>
+    <div className="col-md-10">
         <div className="panel panel-primary">
-      <div className="panel-heading">Organizations</div>
+      <div className="panel-heading">Remove</div>
       <div className="panel-body">
-        <CurrentTableNames {...this.state.tables}/>
-        <button type="submit" className="btn btn-warning">Move selected to Tables to Delete</button>
-      </div>
-
-
+            <div className="col-md-1">
+        </div>
+            <div className="col-md-10">
+                <h2>Remove Organizations</h2>
+                <Example cultureShips ={CULTURE_SHIPS} />
+            </div>
     </div>
+    <div className="col-md-1">
     </div>
-     <div className="col-md-4">
-        <div className="panel panel-danger">
-      <div className="panel-heading">Organizations to Delete</div>
-      <div className="panel-body">
-        <CurrentTableNamesToRemove {...toBeRemoved}/>
-      </div>
-        
 
     </div>
     </div>
-    
-      </div>
+    </div>
+
     );
   }
 });
+
+
 
 module.exports = editTables;
 

@@ -143,7 +143,7 @@ app.get('/api/calling', function (req,res) {
 app.get('/api/tables', function (req,res) {
   // validate the supplied token
 
-    console.log("in api get tables");
+//    console.log("in api get tables");
 
     var user = User.verifyToken(req.headers.authorization, function(user) {
 //              console.log(user);
@@ -170,7 +170,7 @@ app.get('/api/tables', function (req,res) {
 app.post('/api/tables', function (req,res) {
   // validate the supplied token
   // get indexes
-    console.log("in post new table");
+//    console.log("in post new table");
   var user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, create the item for the user
@@ -271,7 +271,7 @@ app.put('/api/tables/:table_id', function (req,res) {
 app.delete('/api/tables/:table_id', function (req,res) {
 //app.delete('/api/items/:item_id', function (req,res) {
   // validate the supplied token
-  user = User.verifyToken(req.headers.authorization, function(user) {
+  var user = User.verifyToken(req.headers.authorization, function(user) {
     if (user) {
       // if the token is valid, then find the requested item
       Table.findByIdAndRemove(req.params.table_id, function(err,table) {

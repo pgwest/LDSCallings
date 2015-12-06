@@ -20,6 +20,10 @@ styles.border = {
 
 }
 
+styles.padding = {
+ padding: '10px',   
+}
+
 
 styles.headings = {
 //  background: '#5B6F79',
@@ -54,13 +58,14 @@ const Example = React.createClass({
 //        console.log(callingName);
 //        console.log(this.props);
         this.props.tableData.push({
-      id: this.props._id,
+      id: Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1),
       calling: callingName,
       name: "",
       date: ''
     });
         console.log(this.props);
         api.updateTable(this.props);
+        
     },
     
   render() {
@@ -118,14 +123,29 @@ const Example = React.createClass({
 //        console.log('table');
 //        console.log(this.state.tables);
 //        this.props = tables;
+     var i = 0;   
       var list = this.props.tables.map(function(tableDataProps){
 //          console.log('tabledataprops');
 //          console.log(tableDataProps);
-        return  <div className="col-md-6 col-md-12" style={styles.wrapper}>
+          if(i==3){
+          i=1;
+        return <div>  
+            <div className='row' style={styles.border}></div>
+            <div className="col-md-4 col-md-12" style={styles.padding}>
                     <h2 style={styles.headings}>{tableDataProps.title}</h2>
                     <Example {...tableDataProps} />
                     <CurrentTable jobs={tableDataProps} /> 
                 </div>
+                </div>    
+          }
+          else{
+          i++;
+        return  <div className="col-md-4 col-md-12" style={styles.padding}>
+                    <h2 style={styles.headings}>{tableDataProps.title}</h2>
+                    <Example {...tableDataProps} />
+                    <CurrentTable jobs={tableDataProps} /> 
+                </div>
+          }
       });
 //        console.log(list);
       return <div>
@@ -192,7 +212,9 @@ function onSelect(row, isSelected){
     console.log('on select');
     console.log(row);
     console.log(isSelected);
-}
+};
+
+
 
 //var options = {
 //    onSelect: onSelect
@@ -205,10 +227,10 @@ function onSelect(row, isSelected){
       
     return (
       <BootstrapTable data={jobs} cellEdit={cellEditProp} striped={true} hover={true} condensed={true} insertRow={false} deleteRow={true} selectRow={selectRowProp}>
-          <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center">Job ID</TableHeaderColumn>
-          <TableHeaderColumn dataField="calling" width="80" editable={{type:'textarea'}} dataAlign="center">Calling</TableHeaderColumn>
+          <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center" width="10">Job ID</TableHeaderColumn>
+          <TableHeaderColumn dataField="calling" width="120" editable={{type:'textarea'}} dataAlign="center">Calling</TableHeaderColumn>
           <TableHeaderColumn dataField="name" width="120" editable={{type:'textarea'}} dataAlign="center">Member Name</TableHeaderColumn>
-          <TableHeaderColumn dataField="date" width="60" editable={{type:'textarea'}} dataAlign="center">Date Called</TableHeaderColumn>
+          <TableHeaderColumn dataField="date" width="120" editable={{type:'textarea'}} dataAlign="center">Date Called</TableHeaderColumn>
       </BootstrapTable>
     );
   }

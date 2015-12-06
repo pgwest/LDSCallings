@@ -18,6 +18,12 @@ styles.border = {
 
 }
 
+styles.padding = {
+//  background: '#5B6F79',
+  padding: '5px'
+
+}
+
 
 styles.headings = {
 //  background: '#5B6F79',
@@ -29,12 +35,26 @@ styles.headings = {
   var CurrentTableList = React.createClass({
     render: function() {
         console.log(this.props);
+        var i = 0;
       var list = this.props.tables.map(function(tableDataProps){
 //          console.log(tableDataProps);
-        return  <div className="col-md-3 col-md-12" style={styles.wrapper}>
+          if(i==4){
+          i=1;
+        return <div>  
+            <div className='row' style={styles.border}></div>
+            <div className="col-sm-3 col-sm-12" style={styles.padding}>
                     <h1 style={styles.headings}>{tableDataProps.title}</h1>
                     <CurrentTable jobs={tableDataProps} /> 
                 </div>
+                </div>    
+          }
+          else{
+          i++;
+        return  <div className="col-sm-3 col-sm-12" style={styles.padding}>
+                    <h1 style={styles.headings}>{tableDataProps.title}</h1>
+                    <CurrentTable jobs={tableDataProps} /> 
+                </div>
+          }
       });
 //        console.log(list);
       return <div>
@@ -42,6 +62,8 @@ styles.headings = {
       </div>
     }
   });
+
+
 
 //  var options = {
 //    thumbnailData:  [{
@@ -106,9 +128,9 @@ var selectRowProp = {
     return (
       <BootstrapTable data={jobs} cellEdit={cellEditProp} striped={true} hover={true} condensed={true}>
           <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center">Job ID</TableHeaderColumn>
-          <TableHeaderColumn dataField="calling" width="80" editable={{type:'textarea'}} dataAlign="center">Calling</TableHeaderColumn>
+          <TableHeaderColumn dataField="calling" width="120" editable={{type:'textarea'}} dataAlign="center">Calling</TableHeaderColumn>
           <TableHeaderColumn dataField="name" width="120" editable={{type:'textarea'}} dataAlign="center">Member Name</TableHeaderColumn>
-          <TableHeaderColumn dataField="date" width="60" editable={{type:'textarea'}} dataAlign="center">Date Called</TableHeaderColumn>
+          <TableHeaderColumn dataField="date" width="80" editable={{type:'textarea'}} dataAlign="center">Called</TableHeaderColumn>
       </BootstrapTable>
     );
   }

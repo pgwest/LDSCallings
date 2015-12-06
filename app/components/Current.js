@@ -39,7 +39,7 @@ styles.headings = {
 
 var options = {
  tables : [{
-      id: "id",
+      key: "id",
       title: "Bishopric",
       tableData :[{
           id: "id",
@@ -162,7 +162,7 @@ var Current = React.createClass({
       // list of items in the todo list
         tables: {
             tables:[{
-      id: "id",
+      key: "id",
       title: "Bishopric",
       tableData :[{
           id: "id",

@@ -10,7 +10,28 @@ import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
 import api from './api.js';
 import auth from "./auth.js";
 
+const styles = {};
+    
 
+styles.wrapper = {
+//  background: '#fffff',
+  color: '#28363D',
+
+}
+
+styles.border = {
+//  background: '#5B6F79',
+  border: '5px solid #5B6F79',
+
+}
+
+
+styles.headings = {
+//  background: '#5B6F79',
+  'textDecoration':'underline', 
+//  'border-bottom': '5px solid #2C4537',
+
+}
 //const Example = React.createClass({
 //
 //  getInitialState() {
@@ -212,14 +233,15 @@ var editCallings = React.createClass({
         this.context.history.pushState(null, '/login');
     }
   },
-      
   // show the registration form
   render: function() {
     return (
       <div>
         <h1>Edit Callings</h1>
         <br></br>
+        <div className='row' style={styles.border}></div>
         <EditableTable {...this.state.tables} />
+        <div className='row' style={styles.border}></div>
 
     
       </div>
