@@ -43,9 +43,9 @@ class MyActions extends React.Component {
               <div className="panel panel-danger">
               <div className="panel-heading">Immediate Actions</div>
               <div className="panel-body">
-                    <p>People to Call.</p> 
-                    <p>People to Meet.</p>
-                    <p>People to Set Apart.</p>
+                    <p>1. Person to Call.</p> 
+                    <p>2. Decide on Young Men's President</p>
+                    <p>3. People to Set Apart.</p>
                 </div>
                 </div>
         </div>

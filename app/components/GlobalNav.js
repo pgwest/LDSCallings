@@ -66,7 +66,7 @@ class GlobalNav extends React.Component {
           <Link to="/actions" style={styles.link} activeStyle={styles.activeLink}>Action Needed</Link>{' '}
           <Link to="/without" style={styles.link} activeStyle={styles.activeLink}>Without A Calling</Link>{' '}
                   <Link to="/members" style={styles.link} activeStyle={styles.activeLink}>Member Directory</Link>{' '}
-          <Link to="/myActions" style={styles.link} activeStyle={styles.activeLink}>My Actions <span className="badge">2</span></Link>{' '}
+          <Link to="/myActions" style={styles.link} activeStyle={styles.activeLink}>My Actions <span className="badge">3</span></Link>{' '}
         
 
 
