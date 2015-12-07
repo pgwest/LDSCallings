@@ -9,7 +9,8 @@ var jobTypes = ['A','B','C','D'];
 function addJobs(quantity) {
   var startId = jobs.length;
   for (var i = 0; i < quantity; i++) {
-    var id = startId + i;
+//    var id = startId + i;
+            var id = Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) * Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1) * Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1);
     jobs.push({
       id: id,
       calling: "Calling " + id,

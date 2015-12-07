@@ -2,9 +2,12 @@ import $ from "jquery";
 
 // authentication object
 var auth = {
-  register: function(name, username, password, calling, email, cb) {
+  register: function(name, username, password, ward, wardId, calling, email, cb) {
     // submit request to server, call the callback when complete
     var url = "/api/users/register";
+
+//      console.log(wardId);
+//      console.log('wardId');
     $.ajax({
       url: url,
       dataType: 'json',
@@ -13,6 +16,8 @@ var auth = {
         name: name,
         username: username,
         password: password,
+        ward: ward,
+        wardId: wardId,
         calling: calling,
         email: email,
       },
@@ -20,6 +25,8 @@ var auth = {
       success: function(res) {
         localStorage.token = res.token;
         localStorage.name = res.name;
+        localStorage.ward = res.ward;
+        localStorage.wardId = res.wardId;
         localStorage.calling = res.calling;
         localStorage.email = res.email;
         this.onChange(true);
@@ -61,6 +68,8 @@ var auth = {
         // on success, store a login token
         localStorage.token = res.token;
         localStorage.name = res.name;
+        localStorage.ward = res.ward;
+        localStorage.wardId = res.wardId;
         localStorage.calling = res.calling;
         localStorage.email = res.email;
         this.onChange(true);
@@ -90,6 +99,9 @@ var auth = {
   },
   getEmail: function() {
     return localStorage.email;
+  },
+  getWard: function() {
+    return localStorage.ward;
   },
   // logout the user, call the callback when complete
   logout: function(cb) {

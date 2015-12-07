@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import auth from './auth.js'
+import App from '../App.js'
 
 const dark = 'hsl(200, 20%, 20%)'
 const light = '#fff'
@@ -48,6 +49,10 @@ class GlobalNav extends React.Component {
 
   logOut() {
     alert('log out')
+  }
+      
+  open() {
+    
   }
 
   render() {

@@ -38,6 +38,8 @@ var App = React.createClass({
     auth.logout();
     this.history.pushState(null, '/');
   },
+    
+    
 
   // show the navigation bar
   // the route handler replaces the RouteHandler element with the current page

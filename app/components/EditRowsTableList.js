@@ -58,7 +58,7 @@ const Example = React.createClass({
 //        console.log(callingName);
 //        console.log(this.props);
         this.props.tableData.push({
-      id: Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1),
+      id: Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) * Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1) * Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1),
       calling: callingName,
       name: "",
       date: ''

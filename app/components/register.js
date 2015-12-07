@@ -27,19 +27,23 @@ var Register = React.createClass({
     // prevent default browser submit
     event.preventDefault();
     // get data from form
-    var name = this.refs.name.value;
+//    var name = this.refs.name.value;
+      var name = 'uselsess info';
     var username = this.refs.username.value;
     var password = this.refs.password.value;
+    var ward = this.refs.ward.value;    
     var calling = this.refs.calling.value;
     var email = this.refs.email.value;
       console.log(email);
       
-    if (!name || !username || !password || !calling || !email) {
+    if (!name || !username || !password || !calling || !email || !ward) {
         console.log('value missing');
       return;
     }
+      
+    var wardId = Math.floor(Math.random()*500 +1) * Math.floor(Math.random()*10000) * Math.floor(Math.random()*100) + Math.floor(Math.random()*500 +1) + Math.floor(Math.random()*10000) + Math.floor(Math.random()*100) + Math.floor(Math.random()*500 +1) + Math.floor(Math.random()*10000) * Math.floor(Math.random()*100);
     // register via the API
-    auth.register(name, username, password, calling, email,  function(loggedIn) {
+    auth.register(name, username, password, ward, wardId, calling, email,  function(loggedIn) {
       // register callback
       if (!loggedIn)
         return this.setState({
@@ -58,9 +62,10 @@ var Register = React.createClass({
       <div>
         <h2>Register</h2>
         <form className="form-vertical" onSubmit={this.register}>
-          <input type="text" placeholder="Name" ref="name" autoFocus={true} />
+
           <input type="text" placeholder="Username" ref="username"/>
           <input type="password" placeholder="Password" ref="password"/>
+          <input type="ward" placeholder="Ward Name" ref="ward"/>
          <input type="text" placeholder="Calling" ref="calling"/>
          <input type="email" placeholder="Email" ref="email"/>
           <input className="btn btn-warning" type="submit" value="Register" />
@@ -72,5 +77,7 @@ var Register = React.createClass({
     );
   }
 });
+
+//          <input type="text" placeholder="Name" ref="name" autoFocus={true} />
 
 module.exports = Register;

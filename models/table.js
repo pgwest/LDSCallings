@@ -8,7 +8,7 @@ import User from './users.js';
 
 var tableSchema = new Schema({
   user: {type: ObjectId, ref: 'users'},
-  id: String,
+  id: Number,
   title: String,
   tableData: [],
 });

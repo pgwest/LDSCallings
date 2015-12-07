@@ -162,7 +162,7 @@ var Current = React.createClass({
       // list of items in the todo list
         tables: {
             tables:[{
-      key: "id",
+      id: "id",
       title: "Bishopric",
       tableData :[{
           id: "id",

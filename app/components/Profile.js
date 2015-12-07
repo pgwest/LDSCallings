@@ -51,6 +51,7 @@ var Profile = React.createClass({
       name: auth.getName(),
       calling: auth.getCalling(),
       email: auth.getEmail(),
+      ward: auth.getWard(),
       };
   },
       // when the component loads, get the list items
@@ -84,17 +85,38 @@ var Profile = React.createClass({
 //      console.log(auth.getCalling());
     return (
       <div>
-        <div>
-            <h1>My Account</h1>
-            <h3>Username: {this.state.name}</h3>         <button onClick={this.logOut}>Edit</button>
-            <h3>Password: </h3>         <button onClick={this.logOut}>Edit</button>
-            <h3>Calling: {this.state.calling}</h3>         <button onClick={this.logOut}>Edit</button>
-            <h3>Email: {this.state.email}</h3>         <button onClick={this.logOut}>Edit</button>
+        <h1 style={styles.headings}> My Account</h1>
+        <div className="col-md-1">
         </div>
-       <div>
-        <br> </br>
-        <h1>Manage LDS Callings App</h1>
+        <div className="col-md-3">
+            <h3>Username: {this.state.name}</h3>         <button onClick={this.logOut}>Edit</button>
+            <h3>Password: ******</h3>         <button onClick={this.logOut}>Edit</button>
+        </div>
+        <div className="col-md-3">
+            <h3>Ward: {this.state.calling}</h3>         <button onClick={this.logOut}>Edit</button>
+
+            <h3>Calling: {this.state.calling}</h3>         <button onClick={this.logOut}>Edit</button>
+
+        </div>
+        <div className="col-md-4">
+            <h3>Email: {this.state.email}</h3>         <button onClick={this.logOut}>Edit</button>
         
+        
+        <h3>Edit Notifications</h3>
+        <button onClick={this.logOut}>Edit Notifications</button>
+        </div>
+        
+        
+       <div className="row">
+        </div>
+       <div className="col-md-7">
+        <h1 style={styles.headings}> Manage LDS Callings App</h1>
+        </div>
+        <div className='row'>
+        </div>
+        <div className="col-md-1">
+        </div>
+        <div className="col-md-7">
         <h3>Edit Organizations</h3> 
         
         <Link to="/editTables"><h4>Edit Organizations</h4></Link>{' '}
@@ -102,22 +124,18 @@ var Profile = React.createClass({
         <h3>Edit Callings</h3> 
 
         <Link to="/editCallings"><h4>Edit Callings</h4></Link>{' '}
+                
+        <h3>Edit Administrators</h3> 
+        <button onClick={this.logOut}>Edit Admins</button>
         
         <h3>Import Ward Members</h3>
         <button onClick={this.logOut}>Import Ward Membors</button>
         
         <h3>Export CSV</h3> 
         <button onClick={this.logOut}>Export CSV</button>
-        
-        <h3>Edit Administrators</h3> 
-        <button onClick={this.logOut}>Edit Admins</button>
 
 
-        <h3>Edit Notifications</h3>
-        <button onClick={this.logOut}>Edit Notifications</button>
-        <br/>
-        <br/>
-        <br></br>
+
         </div>
       </div>
     )

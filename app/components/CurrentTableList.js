@@ -88,7 +88,8 @@ var jobTypes = ['A','B','C','D'];
 function addJobs(quantity) {
   var startId = jobs.length;
   for (var i = 0; i < quantity; i++) {
-    var id = startId + i;
+//    var id = startId + i;
+      var id = Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 1000) + 1) * Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1) * Math.floor((Math.random() * 1000) + 1) + Math.floor((Math.random() * 100) + 1);
     jobs.push({
       id: id,
       calling: "Calling 1" + id,
@@ -102,11 +103,12 @@ function onAfterSaveCell(row, cellName, cellValue){
   console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
   console.log("Thw whole row :");
   console.log(row);
+//    console.log('save');
 }
 
 
 
-addJobs(5);
+//addJobs(5);
 
 var cellEditProp = {
   mode: "dbclick",

@@ -68,6 +68,8 @@ app.post('/api/users/register', function (req, res) {
       // if this username is not taken, then create a user record
       user.name = req.body.name;
       user.set_password(req.body.password);
+      user.ward = req.body.ward;
+      user.wardId = req.body.wardId;
       user.calling = req.body.calling;
       user.email = req.body.email;
 //      console.log(user.email);
@@ -80,7 +82,7 @@ app.post('/api/users/register', function (req, res) {
         // create a token
 	var token = User.generateToken(user.username);
         // return value is JSON containing the user's name and token
-        res.json({name: user.name, token: token, calling: user.calling, email: user.email});
+        res.json({name: user.name, token: token, ward: user.ward, wardId: user.wardId, calling: user.calling, email: user.email});
       });
     } else {
       // return an error if the username is taken
@@ -102,7 +104,7 @@ app.post('/api/users/login', function (req, res) {
       // create a token
       var token = User.generateToken(user.username);
       // return value is JSON containing user's name and token
-      res.json({name: user.name, token: token, calling: user.calling, email: user.email});
+      res.json({name: user.name, token: token, ward: user.ward, wardId: user.wardId, calling: user.calling, email: user.email});
     } else {
       res.sendStatus(403);
     }
