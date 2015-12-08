@@ -37,7 +37,18 @@ class MyActions extends React.Component {
   render() {
     return (
       <div>
+            <div className="row">
+        <div className="col-md-5">
         <h2 style={styles.headings}>Callings that Require Action by Me</h2>
+        </div>
+        <div className="col-md-4" >
+        </div>
+        <div className="col-md-3" >
+            <br/>
+            <h4>My Calling: Bishop</h4>
+        </div>
+        </div>
+        
     <div className="row">
         <div className="col-md-4"   style={styles.paddingLeft}>
               <div className="panel panel-danger">

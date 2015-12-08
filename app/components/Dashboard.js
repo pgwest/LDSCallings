@@ -3,6 +3,44 @@ import { Link } from 'react-router'
 
 import auth from "./auth.js";
 
+    const styles = {};
+styles.wrapper = {
+//  background: '#fffff',
+  color: '#28363D',
+
+}
+
+styles.border = {
+//  background: '#5B6F79',
+  border: '5px solid #5B6F79',
+
+}
+
+styles.align = {
+//  background: '#5B6F79',
+ textAlign: 'center',
+
+}
+
+styles.paddingLeft = {
+//  background: '#5B6F79',
+  marginLeft: '15px',
+
+}
+
+styles.frame = {
+//  background: '#5B6F79',
+    width: '100%',
+    height: '50em',
+}
+
+
+styles.headings = {
+//  background: '#5B6F79',
+  'textDecoration':'underline', 
+//  'border-bottom': '5px solid #2C4537',
+
+}
     
 var Dashboard = React.createClass({
       // context so the component can access the router
@@ -50,7 +88,16 @@ var Dashboard = React.createClass({
         Once ready, simply fill in the current names and you are ready to start using the LDS Callings Manager to manage your ward with a lot less headache. Enjoy!
 
         <br/> <br/>   In addition, home teaching and visiting teaching can be reported throught the links below. <em>(this functionality has not yet been added)</em>
+    <br/> <br/> 
         </p>
+        <div className="col-md-1">
+        </div>
+        <div className="col-md-10">
+            <p style={styles.align}><strong>Feel free to use lds.org below to help with your ward management without leaving the page!</strong></p>
+            <iframe src="http://www.lds.org" style={styles.frame}>
+                <p>Your browser does not support iframes.</p>
+            </iframe>
+        </div>
       </div>
     )
   }

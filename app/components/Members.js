@@ -41,7 +41,7 @@ class Members extends React.Component {
         
      <div className="row">
       <div className="col-md-3">
-        <h4>Johnathon Jacobs</h4>
+        <h4>James Kirkland</h4>
         </div>
       <div className="col-md-3">
         <h4>September 21, 1996</h4>
@@ -54,7 +54,7 @@ class Members extends React.Component {
         
       <div className="row">
       <div className="col-md-3">
-        <h4>Johnathon Einstein</h4>
+        <h4>Albrecht MEinstein</h4>
         </div>
       <div className="col-md-3">
         <h4>September 21, 1946</h4>
