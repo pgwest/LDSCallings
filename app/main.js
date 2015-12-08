@@ -19,6 +19,8 @@ import login from './components/login.js'
 import register from './components/register.js'
 import editTables from './components/editTables.js'
 import editCallings from './components/editCallings.js'
+import reset from './components/reset.js'
+
 
 
 const createBrowserHistory = require('history/lib/createBrowserHistory');
@@ -43,6 +45,8 @@ ReactDOM.render(
       <Route path='register' component={register} />
       <Route path='editTables' component={editTables} />
       <Route path='editCallings' component={editCallings} />
+      <Route path='reset' component={reset} />
+
 
 
     </Route>

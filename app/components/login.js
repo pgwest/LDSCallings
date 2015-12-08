@@ -61,9 +61,9 @@ const Example = React.createClass({
     if (!email) {
       return;
     }
-    console.log('email is ');
-    console.log(email);
-        
+//    console.log('email is ');
+//    console.log(email);
+    api.reset(email, this.close);
     },
     
   render() {
@@ -121,7 +121,8 @@ var Login = React.createClass({
   getInitialState: function() {
     return {
       // there was an error on logging in
-      error: false
+      error: false,
+      error1: false,
     };
 
   },
@@ -134,8 +135,9 @@ var Login = React.createClass({
     var username = this.refs.username.value;
     var password = this.refs.password.value;
     if (!username || !password) {
-      return;
-    }
+       return this.setState({
+          error1: true,
+        });    }
     // login via API
     auth.login(username, password, function(loggedIn) {
       // login callback
@@ -162,6 +164,9 @@ var Login = React.createClass({
           <input className="btn btn-warning" type="submit" value="Login" />
           {this.state.error ? (
              <div className="alert">Invalid username or password.</div>
+           ) : null}
+    {this.state.error1 ? (
+             <div className="alert">Please enter username and password before logging in.</div>
            ) : null}
         </form>
             <p>Forgot your username or password?</p>

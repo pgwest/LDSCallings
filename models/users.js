@@ -19,7 +19,9 @@ var userSchema = new Schema({
   ward: String,
   wardId: Number,
   calling: String,
-  email: String,
+  email: {type: String, required:true, unique: true},
+  resetPasswordToken : String,
+  resetPasswordExpires: Date,
 });
 
 // hash the password

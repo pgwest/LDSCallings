@@ -44,6 +44,61 @@ var api = {
       }
     });
   },
+      // send email to reset
+  reset: function(email, cb) {
+//      console.log('in api reset');
+    var url = "/api/forgot";
+    $.ajax({
+      url: url,
+      contentType: 'application/json',
+      data: JSON.stringify({
+          email: email,
+      }),
+      type: 'POST',
+      headers: {'Authorization': localStorage.token},
+      success: function(res) {
+        if (cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        // if there is an error, remove the login token
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }
+    });
+
+  },
+    
+          // reset email
+  resetPass: function(password, token, cb) {
+//      console.log('reset password');
+//      console.log(password);
+//      console.log(token);
+    var url = "/api/reset/" + token;
+    $.ajax({
+      url: url,
+      contentType: 'application/json',
+      data: JSON.stringify({
+          password: password,
+          token: token,
+      }),
+      type: 'POST',
+      headers: {'Authorization': localStorage.token},
+      success: function(res) {
+        if (cb)
+          cb(true, res);
+      },
+      error: function(xhr, status, err) {
+        // if there is an error, remove the login token
+        delete localStorage.token;
+        if (cb)
+          cb(false, status);
+      }
+    });
+
+  },
+    
   // add an table, call the callback when complete
   addTable: function(title, cb) {
     var url = "/api/tables";
