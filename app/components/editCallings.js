@@ -238,6 +238,7 @@ var editCallings = React.createClass({
     return (
       <div>
         <h1>Edit Callings</h1>
+        <p>Add Organizations before adding callings on this page.</p>
         <br></br>
         <div className='row' style={styles.border}></div>
         <EditableTable {...this.state.tables} />
