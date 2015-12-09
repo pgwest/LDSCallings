@@ -32,6 +32,9 @@ styles.headings = {
 
 
 
+//React.render(<Example />, mountNode);
+
+
 //flag a need to change in this and actions by right click
 
 var options = {
@@ -307,7 +310,7 @@ var Current = React.createClass({
   render: function() {
     return (
       <div style={styles.border}>
-        
+ 
          <div className="container-fluid" >
                     <CurrentTableList {...this.state.tables}/>
        
@@ -316,7 +319,7 @@ var Current = React.createClass({
             </div>
 
     
-                   <div className="row"  style={styles.border}>
+                   <div className="row">
                 </div>
                 <div className="col-md-3 col-md-12" style={styles.wrapper}>
                     <h1 style={styles.headings}>Bishopric</h1>
@@ -416,9 +419,9 @@ var Current = React.createClass({
                     <MemberTable/>
                 </div>
         
-
                 <div className="row" style={styles.border}>
                 </div>
+                <div className="row" style={styles.border}>
                   <div className="col-md-4 col-md-12">
                     <h1>Laurels</h1>
                     <MemberTable/>
@@ -431,6 +434,9 @@ var Current = React.createClass({
                     <h1>Beehives</h1>
                     <MemberTable/>
                 </div>
+                
+                </div>
+        
        </div>
 
         

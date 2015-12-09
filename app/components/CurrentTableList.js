@@ -64,7 +64,7 @@ styles.headings = {
     }
   });
 
-
+//var CurrentTable = React.createFactory(CurrentTable);
 
 //  var options = {
 //    thumbnailData:  [{

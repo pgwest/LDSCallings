@@ -1,5 +1,6 @@
 import React from 'react'
 import MemberTable from './MemberTable.js'
+import api from './api.js'
 
 const styles = {}
 
@@ -10,13 +11,41 @@ styles.thumbnail = {
   justifyContent: 'center',
   alignItems: 'center'
 }
-    
-class Members extends React.Component {
 
+styles.border = {
+//  background: '#5B6F79',
+  border: '5px solid #5B6F79',
+
+}
     
-  render() {
+var Members = React.createClass ({
+    contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
+
+  },
+    getInitialState: function() {
+        return {
+        }
+    },
+      componentDidMount: function() {
+    api.getTables(this.tableSet);
+  },
+    tableSet: function(status, data) {
+//      console.log(status);
+//      console.log(data);
+    if (status) {
+
+//        console.log(this.state.tables);
+    } else {
+      // if the API call fails, redirect to the login page
+        this.context.history.pushState(null, '/login');
+    }
+  },
+    
+  render: function() {
     return (
-     <div>
+     <div style={styles.border}>
       <div>
         <h1>Members Directory</h1>
       </div>
@@ -69,6 +98,6 @@ class Members extends React.Component {
     )
   }
 
-}
+});
 
 module.exports = Members;

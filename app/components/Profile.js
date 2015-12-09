@@ -93,7 +93,7 @@ var Profile = React.createClass({
 //      console.log(this.state.calling);
 //      console.log(auth.getCalling());
     return (
-      <div>
+      <div style={styles.border}>
         <h1 style={styles.headings}> My Account</h1>
               <div className="panel panel-primary" style={styles.padding}>
               <div className="panel-heading">User Settings and Info</div>

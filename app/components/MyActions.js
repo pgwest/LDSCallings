@@ -1,5 +1,6 @@
 import React from 'react'
-
+import api from './api.js'
+    
     const styles = {};
 styles.wrapper = {
 //  background: '#fffff',
@@ -32,11 +33,34 @@ styles.headings = {
 //  'border-bottom': '5px solid #2C4537',
 
 }
-class MyActions extends React.Component {
+var MyActions = React.createClass ({
+    contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
 
-  render() {
+  },
+    getInitialState: function() {
+        return {
+        }
+    },
+      componentDidMount: function() {
+    api.getTables(this.tableSet);
+  },
+    tableSet: function(status, data) {
+//      console.log(status);
+//      console.log(data);
+    if (status) {
+
+//        console.log(this.state.tables);
+    } else {
+      // if the API call fails, redirect to the login page
+        this.context.history.pushState(null, '/login');
+    }
+  },
+
+  render: function() {
     return (
-      <div>
+      <div style={styles.border}>
             <div className="row">
         <div className="col-md-5">
         <h2 style={styles.headings}>Callings that Require Action by Me</h2>
@@ -99,11 +123,13 @@ class MyActions extends React.Component {
             </div>
         </div>
     </div>
+            <div className="row">
+            </div>
         </div>
     )
   }
 
-}
+});
 
 module.exports = MyActions;
 

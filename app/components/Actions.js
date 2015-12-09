@@ -2,7 +2,8 @@ import React from 'react'
 import Table from './Table.js'
 import CurrentTable from './CurrentTable.js'
 import MemberTable from './MemberTable.js'
-
+import api from './api.js'
+    
 const styles = {};
     
 styles.border = {
@@ -11,8 +12,31 @@ styles.border = {
 
 }
     
-class Actions extends React.Component {
-  render() {
+var Actions = React.createClass ({
+    contextTypes: {
+    location: React.PropTypes.object,
+    history: React.PropTypes.object.isRequired,
+
+  },
+    getInitialState: function() {
+        return {
+        }
+    },
+      componentDidMount: function() {
+    api.getTables(this.tableSet);
+  },
+    tableSet: function(status, data) {
+//      console.log(status);
+//      console.log(data);
+    if (status) {
+
+//        console.log(this.state.tables);
+    } else {
+      // if the API call fails, redirect to the login page
+        this.context.history.pushState(null, '/login');
+    }
+  },
+  render: function() {
 //    const events = [
 //      { id: 0, title: 'Callings to be filled' }
 //    ]
@@ -161,6 +185,6 @@ class Actions extends React.Component {
        </div>
     )
   }
-}
+});
 
 module.exports = Actions;
