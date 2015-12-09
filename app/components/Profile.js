@@ -60,6 +60,7 @@ var Profile = React.createClass({
       calling: auth.getCalling(),
       email: auth.getEmail(),
       ward: auth.getWard(),
+      username: auth.getUsername(),
       };
   },
       // when the component loads, get the list items
@@ -100,13 +101,13 @@ var Profile = React.createClass({
                     <div className="col-md-1">
                     </div>
                     <div className="col-md-3">
-                        <h3>Username: {this.state.name}</h3>         
+                        <h3>Username: {this.state.username}</h3>         
                     <button onClick={this.logOut} className="btn btn-warning">Edit</button>
                         <h3>Password: ******</h3>         
                     <button onClick={this.logOut} className="btn btn-warning">Edit</button>
                     </div>
                     <div className="col-md-3">
-                        <h3>Ward: {this.state.calling}</h3>         
+                        <h3>Ward: {this.state.ward}</h3>         
                     <button onClick={this.logOut} className="btn btn-warning">Edit</button>
 
                         <h3>Calling: {this.state.calling}</h3>         

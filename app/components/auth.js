@@ -66,6 +66,7 @@ var auth = {
       },
       success: function(res) {
         // on success, store a login token
+          localStorage.username = username;
         localStorage.token = res.token;
         localStorage.name = res.name;
         localStorage.ward = res.ward;
@@ -88,6 +89,9 @@ var auth = {
   // get the token from local storage
   getToken: function() {
     return localStorage.token;
+  },
+  getUsername: function() {
+    return localStorage.username;
   },
   // get the name from local storage
   getName: function() {

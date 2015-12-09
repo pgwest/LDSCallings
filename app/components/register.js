@@ -70,7 +70,7 @@ var Register = React.createClass({
          <input type="email" placeholder="Email" ref="email"/>
           <input className="btn btn-warning" type="submit" value="Register" />
           {this.state.error ? (
-             <div className="alert">Invalid username or password.</div>
+             <div className="alert">Invalid username or password or non-unique email.</div>
            ) : null }
         </form>
       </div>
