@@ -1,11 +1,11 @@
 {
   "name": "lds_callings",
   "version": "0.1.0",
-  "description": "A boilerplate for running a Webpack workflow in Node express",
+  "description": "An app for managing lds callings",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christianalfoni/webpack-express-boilerplate.git"
+    "url": "git+https://github.com/pgwest/LDSCallings.git"
   },
   "keywords": [
     "express",
@@ -15,9 +15,9 @@
   "author": "Peter West",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/christianalfoni/webpack-express-boilerplate/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/christianalfoni/webpack-express-boilerplate",
+  "homepage": "ldscallings.org",
   "scripts": {
     "test": "",
     "start": "babel-node server",

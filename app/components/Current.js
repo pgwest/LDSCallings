@@ -30,9 +30,6 @@ styles.headings = {
 
 }
 
-//styles.table = {
-//      border: '25px solid #2C4537',
-//}
 
 
 //flag a need to change in this and actions by right click
@@ -282,14 +279,14 @@ var Current = React.createClass({
 
   // callback for getting the list of items, sets the list state
   tableSet: function(status, data) {
-      console.log(status);
+//      console.log(status);
 //      console.log(data);
     if (status) {
       // set the state for the list of items
       this.setState({
         tables: data
       });
-        console.log(this.state.tables);
+//        console.log(this.state.tables);
     } else {
       // if the API call fails, redirect to the login page
         this.context.history.pushState(null, '/login');
@@ -314,12 +311,126 @@ var Current = React.createClass({
          <div className="container-fluid" >
                     <CurrentTableList {...this.state.tables}/>
        
- 
+
                 
             </div>
-    
 
     
+                   <div className="row"  style={styles.border}>
+                </div>
+                <div className="col-md-3 col-md-12" style={styles.wrapper}>
+                    <h1 style={styles.headings}>Bishopric</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1 style={styles.headings}>High Priests</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1 style={styles.headings}>Relief Society</h1>
+                    <CurrentTable/>
+
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1 style={styles.headings}>Primary</h1>
+                    <CurrentTable/>
+
+                </div> 
+                    
+                <div className="row" style={styles.border}>
+                </div>
+                  <div className="col-md-3 col-md-12">
+                    <h1>Elders Quorum</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Sunday School</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Ward Music</h1>
+                    <CurrentTable/>
+
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Communications</h1>
+                    <CurrentTable/>
+
+                </div>
+                
+                <div className="row" style={styles.border}>
+                </div>
+                  <div className="col-md-3 col-md-12">
+                    <h1>Ward Positions</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Miscellaneous</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Stake Callings</h1>
+                    <CurrentTable/>
+
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>YSA</h1>
+                    <CurrentTable/>
+
+                </div>    
+                    
+                
+                                <div className="row" style={styles.border}>
+                </div>
+                  <div className="col-md-3 col-md-12">
+                    <h1>Young Men</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Young Women</h1>
+                    <CurrentTable/>
+                </div>
+                <div className="col-md-3 col-md-12">
+                    <h1>Other</h1>
+                    <CurrentTable/>
+
+                </div>
+                <div className="col-md-3 col-md-12">
+
+
+                </div>
+                
+            
+                <div className="row" style={styles.border}>
+                </div>
+                  <div className="col-md-4 col-md-12">
+                    <h1>Priests</h1>
+                    <MemberTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Teachers</h1>
+                    <MemberTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Deacons</h1>
+                    <MemberTable/>
+                </div>
+        
+
+                <div className="row" style={styles.border}>
+                </div>
+                  <div className="col-md-4 col-md-12">
+                    <h1>Laurels</h1>
+                    <MemberTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Mia-Maides</h1>
+                    <MemberTable/>
+                </div>
+                <div className="col-md-4 col-md-12">
+                    <h1>Beehives</h1>
+                    <MemberTable/>
+                </div>
        </div>
 
         

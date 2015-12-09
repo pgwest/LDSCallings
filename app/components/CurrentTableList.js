@@ -44,6 +44,7 @@ styles.headings = {
             <div className='row' style={styles.border}></div>
             <div className="col-sm-3 col-sm-12" style={styles.padding}>
                     <h1 style={styles.headings}>{tableDataProps.title}</h1>
+                    <h2>{tableDataProps.id}</h2>
                     <CurrentTable jobs={tableDataProps} /> 
                 </div>
                 </div>    

@@ -34,6 +34,9 @@ styles.frame = {
     height: '50em',
 }
 
+styles.comic = {
+    width: '100%',
+}
 
 styles.headings = {
 //  background: '#5B6F79',
@@ -98,10 +101,21 @@ var Dashboard = React.createClass({
                 <p>Your browser does not support iframes.</p>
             </iframe>
         </div>
+                <div className ='col-md-3'>
+                    <p></p>
+                    </div>
+
       </div>
     )
   }
 });
+
+//                <div className ='col-md-3'>
+//                    <img src="http://s3.birthmoviesdeath.com/images/made/mormonmemes11_1200_1200_81_s.jpg" style={styles.comic} />
+//        </div>
+//                <div className ='col-md-3'>
+//                    <img src="http://www.ldssmile.com/wp-content/uploads/2015/06/hilarious-fathers-day-memes-10.jpg" style={styles.comic} />
+//        </div>
 
 module.exports = Dashboard;
 
