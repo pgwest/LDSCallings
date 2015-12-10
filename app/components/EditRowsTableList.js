@@ -3,7 +3,13 @@ import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
 import api from './api.js'
+    
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
+    
+    
 const styles = {};
     
 var tables = {};
@@ -46,6 +52,16 @@ const Example = React.createClass({
   open() {
     this.setState({ showModal: true });
   },
+    addAlert: function (callingName) {
+    this.refs.container.success("hi! Now" + new Date(), callingName, {
+      closeButton: true
+    });
+  },
+
+  clearAlert: function() {
+    this.refs.container.clear();
+  },
+
 
     login: function(event) {
     // prevent default browser submit
@@ -64,7 +80,9 @@ const Example = React.createClass({
       date: ''
     });
         console.log(this.props);
+        this.addAlert(callingName);
         api.updateTable(this.props);
+        this.close()
         
     },
     
@@ -76,6 +94,8 @@ const Example = React.createClass({
     
     return (
       <div>
+        <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
+
         <Button
           bsStyle="primary"
           bsSize="small"

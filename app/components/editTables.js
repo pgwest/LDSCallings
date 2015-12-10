@@ -10,6 +10,11 @@ import List from 'react-list-select';
 import FilteredMultiSelect from 'react-filtered-multiselect'
 import Example from './organizationList.js'
     
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
+    
 var tableMap = {};
 //var currentTable = {};
 
@@ -199,8 +204,25 @@ var editTables = React.createClass({
     }
 
       api.addTable(organization, this.tableSet);
+      this.addAlert(organization.title, 'Table Added');
             this.forceUpdate();
 
+  },
+    
+    addAlert: function (callingName, title) {
+    this.refs.container.success(title + new Date(), callingName, {
+      closeButton: true
+    });
+  },
+    
+        addAlert1: function (callingName, title) {
+    this.refs.container.error(title + new Date(), callingName, {
+      closeButton: true
+    });
+  },
+
+  clearAlert: function() {
+    this.refs.container.clear();
   },
 
       // handle regiser button submit
@@ -220,7 +242,7 @@ var editTables = React.createClass({
     if (!organization) {
       return;
     }
-
+      this.addAlert(organization.title, 'Table Removed');
       api.deleteTable(organization, this.tableSet);
   },    
     
@@ -249,6 +271,7 @@ var editTables = React.createClass({
 //      console.log(this.state.tables);
     return (
       <div>
+                <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-center" />
         <div className="col-md-1">
         </div>
         <h2>Edit Organizations</h2>
@@ -295,6 +318,7 @@ var editTables = React.createClass({
         </div>
             <div className="col-md-10">
                 <h2>Remove Organizations</h2>
+                <p>Please only select and remove one at a time.</p>
                 <Example cultureShips ={CULTURE_SHIPS} />
             </div>
     </div>

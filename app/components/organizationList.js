@@ -9,6 +9,11 @@ import auth from "./auth.js";
 import List from 'react-list-select';
 import FilteredMultiSelect from 'react-filtered-multiselect'
 
+    
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
 
 const styles = {};
     
@@ -64,6 +69,16 @@ var Example = React.createClass({
     this.setState({selectedShips})
   },
     
+  addAlert: function (callingName) {
+    this.refs.container.success("Table Deleted" + new Date(), callingName, {
+      closeButton: true
+    });
+  },
+
+  clearAlert: function() {
+    this.refs.container.clear();
+  },
+    
   handleSelectionChange: function(selectedShips) {
     this.setState({selectedShips})
   },
@@ -74,7 +89,12 @@ var Example = React.createClass({
 //      console.log(this.state.selectedShips);
       if(this.state.selectedShips){
           var length = this.state.selectedShips.length;
-          for(var i=0; i<length; i++){
+          console.log('length');
+          console.log(length);
+          var i=0;
+          for(i; i<=length; i++){
+//              console.log('iteration');
+              this.addAlert(this.state.selectedShips[0].title);
       api.deleteTable(this.state.selectedShips[0],this.tableSet);
           }
       }
@@ -170,7 +190,7 @@ var Example = React.createClass({
       
     var {selectedShips} = this.state
     return <div>
-
+               <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
         <div className="col-md-5"  style={styles.padding}>
         <div className="panel panel-info">
             <div className="panel-heading">Organizations</div>

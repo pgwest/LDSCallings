@@ -3,6 +3,13 @@ import { Link } from 'react-router'
 import auth from './auth.js'
 import App from '../App.js'
 
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
+    
+    
+    
 const dark = 'hsl(200, 20%, 20%)'
 const light = '#fff'
 const styles = {}
@@ -33,33 +40,49 @@ styles.button = {
 
 }
 
-class GlobalNav extends React.Component {
+var GlobalNav = React.createClass ({
 
-  static defaultProps = {
-    user: {
-      id: 1,
-      name: 'User\'s Name'
-    }
-  }
+//  static defaultProps = {
+//    user: {
+//      id: 1,
+//      name: 'User\'s Name'
+//    }
+//  },
 
-  constructor(props, context) {
-    super(props, context)
-    this.logOut = this.logOut.bind(this)
-  }
-
-  logOut() {
-    alert('log out')
-  }
-      
-  open() {
+//  constructor: function(props, context) {
+////    super(props, context)
+//    this.logOut = this.logOut.bind(this)
+//  },
     
-  }
+    addAlert: function () {
+    this.refs.container.error("hi! Now" + new Date(), "///title\\\\\\", {
+      closeButton: true
+    });
+  },
 
-  render() {
+  clearAlert: function() {
+    this.refs.container.clear();
+  },
+
+
+  logOut: function() {
+//    alert('log out');
+      console.log('this.logout');
+//      this.addAlert();
+//    auth.logout();
+    
+  },
+      
+  open: function() {
+    
+  },
+
+  render: function() {
     const { user } = this.props
 
     return (
       <div style={styles.wrapper}>
+                <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
         <div style={{ float: 'left' }}>
           <Link to="/" style={styles.link}>Home</Link>{' '}
           <Link to="/current" style={styles.link} activeStyle={styles.activeLink}>Current Callings</Link>{' '}
@@ -74,13 +97,15 @@ class GlobalNav extends React.Component {
         
         </div>
         <div style={{ float: 'right' }}>
-          <Link style={styles.link} to="/profile">My Account <span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link> <button style={styles.button} onClick={auth.logout}>Log Out</button>
+          <Link style={styles.link} to="/profile">My Account <span className="glyphicon glyphicon-cog" aria-hidden="true"></span></Link> 
+        
+        <button style={styles.button} onClick={auth.logout}>Log Out</button>
 
         </div>
       </div>
     )
   }
-}
+});
 
 module.exports = GlobalNav;
 

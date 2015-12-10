@@ -86,6 +86,7 @@ var auth = {
       }.bind(this)
     });
   },
+    
   // get the token from local storage
   getToken: function() {
     return localStorage.token;
@@ -111,6 +112,7 @@ var auth = {
   logout: function(cb) {
     delete localStorage.token;
 //    this.onChange(false);
+//      profile.addAlert();
     console.log('logged out');
     if (cb) cb();
   },

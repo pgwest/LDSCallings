@@ -5,6 +5,9 @@ import { Link } from 'react-router'
 import EditableTable from './EditRowsTableList.js'
 import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
 
+
+
+    
 //import ReactbBootstrap from 'react-bootstrap'
 
 import api from './api.js';
@@ -86,6 +89,7 @@ var editCallings = React.createClass({
   // mixin for navigation
   mixins: [ History ],
 
+    
   //class Current extends React.Component {
       // context so the component can access the router
   contextTypes: {

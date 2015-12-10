@@ -3,7 +3,13 @@ import { Link } from 'react-router'
 import api from './api.js'
 import auth from './auth.js'
 
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
 
+    
+    
+    
 const styles = {};
     
 
@@ -37,6 +43,15 @@ styles.headings = {
     
 //class Profile extends React.Component {
 var Profile = React.createClass({
+    addAlert: function () {
+    this.refs.container.error("hi! Now" + new Date(), "///title\\\\\\", {
+      closeButton: true
+    });
+  },
+
+  clearAlert: function() {
+    this.refs.container.clear();
+  },
 
 //class Current extends React.Component {
       // context so the component can access the router
@@ -51,7 +66,7 @@ var Profile = React.createClass({
 //  }
 
   logOut: function() {
-    alert('functionality not yet added')
+    alert('functionality not yet added');
   },
   
   getInitialState: function() {
@@ -66,6 +81,7 @@ var Profile = React.createClass({
       // when the component loads, get the list items
   componentDidMount: function() {
     api.getTables(this.tableSet);
+      
   },
 
   // reload the list of items
@@ -95,6 +111,19 @@ var Profile = React.createClass({
     return (
       <div style={styles.border}>
         <h1 style={styles.headings}> My Account</h1>
+        <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
+
+        <h1>
+          React-Toastr
+          <small>React.js toastr component</small>
+        </h1>
+
+
+
+        <div className="btn-container">
+          <button className="primary" onClick={this.addAlert}>Hello {this.props.name}</button>
+          <button className="primary" onClick={this.clearAlert}>CLEAR</button>
+        </div>   
               <div className="panel panel-primary" style={styles.padding}>
               <div className="panel-heading">User Settings and Info</div>
               <div className="panel-body">
