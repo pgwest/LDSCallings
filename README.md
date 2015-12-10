@@ -1,19 +1,17 @@
 # LDS Callings app
 A web application to manage ward callings
 
-Please read the following article: [The ultimate Webpack setup](http://www.christianalfoni.com/articles/2015_04_19_The-ultimate-webpack-setup) to know more about the boilerplate used to start this project.
+view demo at ldscallings.org
 
-## Major update to project
-Inspired by [this project](https://github.com/vesparny/react-kickstart) and the evolving of [react-transform](https://github.com/gaearon/react-transform-boilerplate) and [CSS Modules]((http://glenmaddern.com/articles/css-modules)), this project has gotten a major upgrade.
+Uses Node, Express, Mongo, Mongoose, React, React Router, Nodemailer, and bcrypt. Enjoy!
+
 
 **NOTE!** Use the latest version of Node, 4.x.x.
 
 ## Install
-`git clone https://github.com/christianalfoni/webpack-express-boilerplate.git`
+`git clone https://github.com/pgwest/LDSCallings.git`
 
-or just export the files:
-
-`svn export https://github.com/christianalfoni/webpack-express-boilerplate/trunk ./dir`
+or download zip from github.com/pgwest/LDSCallings
 
 ## Overview
 

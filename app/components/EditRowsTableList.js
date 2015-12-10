@@ -79,7 +79,7 @@ const Example = React.createClass({
       name: "",
       date: ''
     });
-        console.log(this.props);
+//        console.log(this.props);
         this.addAlert(callingName);
         api.updateTable(this.props);
         this.close()
@@ -208,9 +208,9 @@ function addJobs(quantity) {
 }
 
 function onAfterSaveCell(row, cellName, cellValue){
-  console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
-  console.log("Thw whole row :");
-  console.log(row);
+//  console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
+//  console.log("Thw whole row :");
+//  console.log(row);
 }
 
 
@@ -229,9 +229,9 @@ var selectRowProp = {
 };
 
 function onSelect(row, isSelected){
-    console.log('on select');
-    console.log(row);
-    console.log(isSelected);
+//    console.log('on select');
+//    console.log(row);
+//    console.log(isSelected);
 };
 
 

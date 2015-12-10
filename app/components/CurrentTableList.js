@@ -73,12 +73,12 @@ var CurrentTableList = React.createClass({
 
 var CurrentTable = React.createClass({
   onAfterSaveCell: function(row, cellName, cellValue){
-    console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
-    console.log("Thw whole row :");
-    console.log(row);
-      console.log('object');
+//    console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
+//    console.log("Thw whole row :");
+//    console.log(row);
+//      console.log('object');
       var table = this.props.jobs;
-      console.log(table);
+//      console.log(table);
       api.updateTable(table, this.open);
       
     //    console.log('save');

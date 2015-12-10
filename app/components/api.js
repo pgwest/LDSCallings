@@ -4,7 +4,7 @@ import $ from "jquery";
 var api = {
       // get the list of tables, call the callback when complete
   getCalling: function(cb) {
-      console.log("in api.js get tables function");
+//      console.log("in api.js get tables function");
     var url = "/api/calling";
     $.ajax({
       url: url,
@@ -127,10 +127,10 @@ var api = {
   },
   // update an table, call the callback when complete
   updateTable: function(table, cb) {
-      console.log(table);
-      console.log(table.title);
-      console.log(table.tableData);
-      console.log(table._id);
+//      console.log(table);
+//      console.log(table.title);
+//      console.log(table.tableData);
+//      console.log(table._id);
     var url = "/api/tables/" + table._id;
     $.ajax({
       url: url,
