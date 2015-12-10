@@ -106,10 +106,10 @@ const Example = React.createClass({
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Add Callings</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h4>Text in a modal</h4>
+            <h4>Enter the calling you would like to add:</h4>
         <form className="form-vertical" onSubmit={this.login}>
           <input type="text" placeholder="Calling Name" ref="username" autoFocus={true} />
           <input className="btn btn-warning" type="submit" value="Add Row" />
