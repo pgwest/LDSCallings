@@ -13,7 +13,7 @@ import User from './models/users.js';
 import Table from './models/table.js';
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 3000 : process.env.PORT;
+const port = isDeveloping ? 3002 : process.env.PORT;
 const app = express();
 
 
