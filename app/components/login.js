@@ -10,6 +10,12 @@ import auth from "./auth.js";
 import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
 import api from './api.js'
 
+    
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+    
+    
 const styles = {};
     
 var tables = {};
@@ -44,6 +50,16 @@ const Example = React.createClass({
   getInitialState() {
     return { showModal: false };
   },
+    
+    addAlert: function (email) {
+    this.refs.container.info("Email to reset password sent on " + new Date(), "Sent to " + {email}, {
+      closeButton: true
+    });
+  },
+
+  clearAlert: function() {
+    this.refs.container.clear();
+  },
 
   close() {
     this.setState({ showModal: false });
@@ -63,6 +79,7 @@ const Example = React.createClass({
     }
 //    console.log('email is ');
 //    console.log(email);
+        this.addAlert(email);
     api.reset(email, this.close);
     },
     
@@ -74,6 +91,7 @@ const Example = React.createClass({
     
     return (
       <div>
+        <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
         <Button
           bsStyle="default"
           bsSize="small"
@@ -156,6 +174,7 @@ var Login = React.createClass({
   render: function() {
     return (
       <div>
+                <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
         <div className = "col-sm-4">
         <h2>Login</h2>
         <form className="form-vertical" onSubmit={this.login}>

@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import api from './api.js'
 
 const styles = {};
 
@@ -34,10 +35,14 @@ styles.headings = {
 
 var CurrentTableList = React.createClass({
   render: function() {
-    console.log(this.props);
+//    console.log(this.props);
+      if(this.props.tables.length == 0){
+       var list = <div> <h3> Please add organizations undder the my account tab to be able to edit your ward's callings </h3></div>   
+      }
+       else{
     var i = 0;
     var list = this.props.tables.map(function(tableDataProps){
-      //          console.log(tableDataProps);
+//                console.log(tableDataProps);
       if(i==4){
         i=1;
         return <div>  
@@ -57,7 +62,9 @@ var CurrentTableList = React.createClass({
         </div>
       }
     });
+       }
     //        console.log(list);
+      
     return <div>
           {list}
     </div>
@@ -69,8 +76,16 @@ var CurrentTable = React.createClass({
     console.log("Save cell '"+cellName+"' with value '"+cellValue+"'");
     console.log("Thw whole row :");
     console.log(row);
+      console.log('object');
+      var table = this.props.jobs;
+      console.log(table);
+      api.updateTable(table, this.open);
+      
     //    console.log('save');
   },
+    open: function(){
+    
+    },
 
   render(){
     var cellEditProp = {

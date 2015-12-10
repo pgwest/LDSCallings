@@ -10,6 +10,12 @@ import auth from "./auth.js";
 
 import { ProgressBar, Popover, Tooltip, Button, Modal } from 'react-bootstrap';
 import api from './api.js'
+    
+var ReactToastr = require("react-toastr");
+var {ToastContainer} = ReactToastr;
+var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+
+    
 
 const styles = {};
     
@@ -50,6 +56,15 @@ var Reset = React.createClass({
 
   },
 
+        addAlert: function () {
+    this.refs.container.error("Password reset on " + new Date(), "Confirmation email will be sent.", {
+      closeButton: true
+    });
+  },
+
+  clearAlert: function() {
+    this.refs.container.clear();
+  },
   // initial state
   getInitialState: function() {
     return {
@@ -76,7 +91,7 @@ var Reset = React.createClass({
 //      console.log("reset");
 //      console.log(cookie.load('reset'));
       var token = cookie.load('reset');
-      api.resetPass(newpass, token, this.open);
+      api.resetPass(newpass, token, this.addAlert);
 //      this.context.history.pushState(null, '/Dashboard');
       this.context.history.pushState(null, '/');
 
@@ -86,6 +101,7 @@ var Reset = React.createClass({
   render: function() {
     return (
       <div>
+                <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
         <div className = "col-sm-4">
         <h2>Reset</h2>
         <form className="form-vertical" onSubmit={this.login}>

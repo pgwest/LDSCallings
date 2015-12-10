@@ -113,17 +113,6 @@ var Profile = React.createClass({
         <h1 style={styles.headings}> My Account</h1>
         <ToastContainer toastMessageFactory={ToastMessageFactory} ref="container" className="toast-top-right" />
 
-        <h1>
-          React-Toastr
-          <small>React.js toastr component</small>
-        </h1>
-
-
-
-        <div className="btn-container">
-          <button className="primary" onClick={this.addAlert}>Hello {this.props.name}</button>
-          <button className="primary" onClick={this.clearAlert}>CLEAR</button>
-        </div>   
               <div className="panel panel-primary" style={styles.padding}>
               <div className="panel-heading">User Settings and Info</div>
               <div className="panel-body">
@@ -195,5 +184,18 @@ var Profile = React.createClass({
     )
   }
 });
+
+
+//        <h1>
+//          React-Toastr
+//          <small>React.js toastr component</small>
+//        </h1>
+//
+//
+//
+//        <div className="btn-container">
+//          <button className="primary" onClick={this.addAlert}>Hello {this.props.name}</button>
+//          <button className="primary" onClick={this.clearAlert}>CLEAR</button>
+//        </div>   
 
 module.exports = Profile;
