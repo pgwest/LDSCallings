@@ -156,8 +156,8 @@ app.post('/api/forgot', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Gmail',
         auth: {
-          user: 'ldscallingsapp@gmail.com',
-          pass: 'ldscallings.org6313'
+          user: 'app@gmail.com',
+          pass: 'ldscallings.org'
         }
       });
       var mailOptions = {
