@@ -99,7 +99,7 @@ app.post('/api/forgot', function(req, res, next) {
         service: 'Gmail',
         auth: {
           user: 'ldscallingsapp@gmail.com',
-          pass: 'ldscallings.org6313'
+          pass: '***********'  
         }
       });
       var mailOptions = {
