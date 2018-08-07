@@ -36,7 +36,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.12.1",
     "history": "^1.13.1",
-    "jquery": "^2.1.4",
+    "jquery": "^3.0.0",
     "jsonwebtoken": "~5.0.1",
     "kerberos": "0.0.17",
     "mongoose": "^4.0.8",
